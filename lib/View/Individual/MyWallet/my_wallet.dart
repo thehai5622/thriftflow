@@ -16,7 +16,7 @@ class MyWallet extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: AppColor.main,
         foregroundColor: AppColor.text1,
-        elevation: 0.5,
+        elevation: 0,
         shadowColor: AppColor.text1,
         title: Text(
           "Ví của tôi",
@@ -55,6 +55,34 @@ class MyWallet extends StatelessWidget {
                 fontWeight: FontWeight.w500,
               ),
             ).paddingSymmetric(horizontal: 20, vertical: 10),
+            _walletItem(
+              icon: "assets/icons/wallet-base.svg",
+              title: "Tiền mặt",
+              subtitle: "300,000 đ",
+            ),
+            _walletItem(
+              icon: "assets/icons/wallet-credit-card.svg",
+              title: "Ví tín dụng",
+              subtitle: "0 đ",
+            ),
+            Text(
+              "Không tính vào tổng",
+              style: TextStyle(
+                fontSize: DeviceHelper.getFontSize(15),
+                color: AppColor.grey,
+                fontWeight: FontWeight.w500,
+              ),
+            ).paddingSymmetric(horizontal: 20, vertical: 10),
+            _walletItem(
+              icon: "assets/icons/wallet-base.svg",
+              title: "Quỹ đen",
+              subtitle: "500,000 đ",
+            ),
+            _walletItem(
+              icon: "assets/icons/wallet-save.svg",
+              title: "Ví tiết kiệm",
+              subtitle: "500,000 đ",
+            ),
           ],
         ),
       ),
@@ -68,6 +96,64 @@ class MyWallet extends StatelessWidget {
         child: const Icon(
           Icons.add,
           color: Colors.white,
+        ),
+      ),
+    );
+  }
+
+  GestureDetector _walletItem({
+    required String icon,
+    required String title,
+    required String subtitle,
+    void Function()? onTap,
+  }) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+        color: AppColor.main,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Row(
+              children: [
+                SvgPicture.asset(
+                  icon,
+                  height: 50,
+                  width: 50,
+                ),
+                const SizedBox(width: 20),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: TextStyle(
+                        fontSize: DeviceHelper.getFontSize(14),
+                        color: AppColor.text1,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    Text(
+                      subtitle,
+                      style: TextStyle(
+                        fontSize: DeviceHelper.getFontSize(13),
+                        color: AppColor.text1,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            const Icon(
+              Icons.more_vert,
+              size: 25,
+              color: AppColor.grey,
+            ),
+          ],
         ),
       ),
     );
