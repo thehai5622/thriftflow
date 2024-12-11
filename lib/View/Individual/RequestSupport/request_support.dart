@@ -15,7 +15,6 @@ class RequestSupport extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          scrolledUnderElevation: 0.0,
           backgroundColor: AppColor.main,
           foregroundColor: AppColor.text1,
           elevation: 0.5,

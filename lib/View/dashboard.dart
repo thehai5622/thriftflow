@@ -53,7 +53,8 @@ class Dashboard extends StatelessWidget {
         }
       }),
       bottomNavigationBar: BottomAppBar(
-        elevation: 5,
+        elevation: 10,
+        shadowColor: AppColor.text1,
         color: AppColor.main,
         shape: const CircularNotchedRectangle(),
         child: Obx(

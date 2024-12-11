@@ -15,9 +15,10 @@ class Home extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        scrolledUnderElevation: 0.0,
+        // scrolledUnderElevation: 0.0,
         backgroundColor: AppColor.main,
         elevation: 0,
+        shadowColor: AppColor.text1,
         title: Column(children: [
           Row(
             children: [

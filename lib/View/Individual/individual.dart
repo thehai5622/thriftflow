@@ -16,9 +16,9 @@ class Individual extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        scrolledUnderElevation: 0.0,
         backgroundColor: AppColor.main,
         elevation: 0,
+        shadowColor: AppColor.text1,
         title: Text(
           "Tài khoản",
           style: TextStyle(
@@ -59,14 +59,168 @@ class Individual extends StatelessWidget {
         ),
         child: ListView(
           children: [
+            Container(
+              decoration: const BoxDecoration(
+                color: AppColor.main,
+                border: Border(
+                  top: BorderSide(
+                    color: AppColor.greyLine,
+                    width: 1,
+                  ),
+                ),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    height: 70,
+                    width: 70,
+                    decoration: const BoxDecoration(
+                      color: AppColor.thirdMain,
+                      shape: BoxShape.circle,
+                    ),
+                    child: Center(
+                      child: Text(
+                        "L",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: DeviceHelper.getFontSize(35),
+                          color: AppColor.white,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    "Luonghai5622",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: DeviceHelper.getFontSize(16),
+                      color: AppColor.text1,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  Text(
+                    "luonghai5622@gmail.com",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: DeviceHelper.getFontSize(15),
+                      color: AppColor.grey,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ],
+              ).paddingSymmetric(vertical: 40, horizontal: 20),
+            ),
+            utilitiesItem(
+              icon: "assets/icons/ultils-wallet.svg",
+              title: "Ví của tôi",
+            ),
+            utilitiesItem(
+              icon: "assets/icons/ultils-group.svg",
+              title: "Nhóm",
+            ),
+            utilitiesItem(
+              icon: "assets/icons/ultils-event.svg",
+              title: "Sự kiện",
+            ),
+            utilitiesItem(
+              icon: "assets/icons/ultils-periodic.svg",
+              title: "Giao dịch định kì",
+            ),
+            utilitiesItem(
+              icon: "assets/icons/ultils-bill.svg",
+              title: "Hóa đơn",
+            ),
+            utilitiesItem(
+              icon: "assets/icons/ultils-debt-book.svg",
+              title: "Sổ nợ",
+            ),
+            utilitiesItem(
+              icon: "assets/icons/ultils-tool.svg",
+              title: "Công cụ",
+            ),
+            utilitiesItem(
+              icon: "assets/icons/ultils-travel.svg",
+              title: "Chế độ du lịch",
+            ),
+            utilitiesItem(
+              icon: "assets/icons/ultils-question.svg",
+              title: "Hỗ trợ",
+            ),
+            utilitiesItem(
+              icon: "assets/icons/ultils-setting.svg",
+              title: "Cài đặt",
+            ),
+            utilitiesItem(
+              icon: "assets/icons/ultils-information.svg",
+              title: "Giới thiệu",
+            ),
             Text(
               "Phiên bản 1.0.0",
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: DeviceHelper.getFontSize(15),
+                fontSize: DeviceHelper.getFontSize(16),
                 color: AppColor.grey,
-                fontWeight: FontWeight.w500,
+                fontWeight: FontWeight.w400,
               ),
+            ).marginOnly(top: 20),
+          ],
+        ).paddingOnly(bottom: 50),
+      ),
+    );
+  }
+
+  GestureDetector utilitiesItem({
+    required String icon,
+    required String title,
+    void Function()? onTap,
+  }) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        decoration: const BoxDecoration(
+          color: AppColor.main,
+          border: Border(
+            top: BorderSide(
+              color: AppColor.greyLine,
+              width: 1,
+            ),
+          ),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Row(
+              children: [
+                SvgPicture.asset(
+                  icon,
+                  height: 25,
+                  width: 25,
+                  colorFilter: const ColorFilter.mode(
+                    AppColor.grey,
+                    BlendMode.srcIn,
+                  ),
+                ),
+                const SizedBox(width: 25),
+                Text(
+                  title,
+                  style: TextStyle(
+                    fontSize: DeviceHelper.getFontSize(14),
+                    color: AppColor.text1,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ],
+            ),
+            const Icon(
+              Icons.arrow_forward_ios_rounded,
+              size: 17,
+              color: AppColor.grey,
             ),
           ],
         ),
