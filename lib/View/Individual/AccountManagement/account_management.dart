@@ -47,38 +47,121 @@ class AccountManagement extends StatelessWidget {
                   style: TextStyle(
                     fontSize: DeviceHelper.getFontSize(14),
                     color: AppColor.grey,
-                    fontWeight: FontWeight.w500,
+                    fontWeight: FontWeight.w400,
                   ),
                 ),
-                const Icon(Icons.replay, color: AppColor.grey, size: 25),
+                const Icon(Icons.replay, color: AppColor.text2, size: 25),
               ],
-            ).marginSymmetric(horizontal: 20),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
-              margin: const EdgeInsets.symmetric(vertical: 10),
-              color: AppColor.main,
-              child: Row(
-                children: [
-                  SvgPicture.asset(
-                    "assets/icons/android.svg",
-                    height: 30,
-                    width: 30,
-                    colorFilter: const ColorFilter.mode(
-                      AppColor.grey,
-                      BlendMode.srcIn,
-                    ),
-                  )
-                ],
-              ),
+            ).paddingSymmetric(horizontal: 20).marginOnly(bottom: 10),
+            _utilsItem(
+              icon: "assets/icons/android.svg",
+              title: "Redmi Note 8 Pro",
+              subtitle: "Thiết bị này",
             ),
             Text(
               "Tài khoản",
               style: TextStyle(
                 fontSize: DeviceHelper.getFontSize(14),
                 color: AppColor.grey,
-                fontWeight: FontWeight.w500,
+                fontWeight: FontWeight.w400,
               ),
-            ).marginSymmetric(horizontal: 20),
+            ).paddingSymmetric(horizontal: 20).marginSymmetric(vertical: 10),
+            _utilsItem(
+              icon: "assets/icons/ultils-replay.svg",
+              title: "Thay đổi mật khẩu",
+              onTap: () {},
+            ),
+            _utilsItem(
+              icon: "assets/icons/ultils-trash.svg",
+              title: "Xóa tài khoản",
+              onTap: () {},
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: AppColor.main,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(26),
+                ),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 12, horizontal: 70),
+              ),
+              onPressed: () {
+                // Logout
+              },
+              child: Text(
+                "Đăng xuất",
+                style: TextStyle(
+                  fontSize: DeviceHelper.getFontSize(14),
+                  color: AppColor.fourthMain,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            ).marginSymmetric(horizontal: 15, vertical: 10),
+          ],
+        ),
+      ),
+    );
+  }
+
+  GestureDetector _utilsItem({
+    required String icon,
+    required String title,
+    String? subtitle,
+    void Function()? onTap,
+  }) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+        color: AppColor.main,
+        child: Row(
+          mainAxisAlignment: onTap != null
+              ? MainAxisAlignment.spaceBetween
+              : MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Row(
+              children: [
+                SvgPicture.asset(
+                  icon,
+                  height: 30,
+                  width: 30,
+                  colorFilter: const ColorFilter.mode(
+                    AppColor.grey,
+                    BlendMode.srcIn,
+                  ),
+                ),
+                const SizedBox(width: 20),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: TextStyle(
+                        fontSize: DeviceHelper.getFontSize(14),
+                        color: AppColor.text1,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    if (subtitle != null)
+                      Text(
+                        subtitle,
+                        style: TextStyle(
+                          fontSize: DeviceHelper.getFontSize(13),
+                          color: AppColor.text1,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                  ],
+                ),
+              ],
+            ),
+            if (onTap != null) const Icon(
+              Icons.arrow_forward_ios_rounded,
+              size: 17,
+              color: AppColor.grey,
+            ),
           ],
         ),
       ),
