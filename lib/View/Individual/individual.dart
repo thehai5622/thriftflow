@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:thriftflow/Component/personal_info.dart';
 import 'package:thriftflow/Controller/Individual/individual_controller.dart';
 import 'package:thriftflow/Global/app_color.dart';
 import 'package:thriftflow/Route/app_page.dart';
@@ -59,64 +60,20 @@ class Individual extends StatelessWidget {
         ),
         child: ListView(
           children: [
-            Container(
-              decoration: const BoxDecoration(
-                color: AppColor.main,
-                border: Border(
-                  top: BorderSide(
-                    color: AppColor.greyLine,
-                    width: 1,
-                  ),
-                ),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    height: 70,
-                    width: 70,
-                    decoration: const BoxDecoration(
-                      color: AppColor.thirdMain,
-                      shape: BoxShape.circle,
-                    ),
-                    child: Center(
-                      child: Text(
-                        "L",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: DeviceHelper.getFontSize(35),
-                          color: AppColor.white,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    "Luonghai5622",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: DeviceHelper.getFontSize(16),
-                      color: AppColor.text1,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                  Text(
-                    "luonghai5622@gmail.com",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: DeviceHelper.getFontSize(15),
-                      color: AppColor.grey,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ],
-              ).paddingSymmetric(vertical: 40, horizontal: 20),
-            ),
+            PersonalInfo(
+              acronym: "L",
+              name: "Luonghai5622",
+              email: "luonghai5622@gmail.com",
+              onTap: () {
+                Get.toNamed(Routes.accountManagement);
+              },
+            ).marginSymmetric(vertical: 20),
             utilitiesItem(
               icon: "assets/icons/ultils-wallet.svg",
               title: "Ví của tôi",
+              onTap: () {
+                Get.toNamed(Routes.myWallet);
+              }
             ),
             utilitiesItem(
               icon: "assets/icons/ultils-group.svg",
@@ -185,7 +142,7 @@ class Individual extends StatelessWidget {
         decoration: const BoxDecoration(
           color: AppColor.main,
           border: Border(
-            top: BorderSide(
+            bottom: BorderSide(
               color: AppColor.greyLine,
               width: 1,
             ),

@@ -9,6 +9,8 @@ abstract class Routes {
   static const createRequest = _Paths.createRequest;
   static const transactionBook = _Paths.transactionBook;
   static const budget = _Paths.budget;
+  static const myWallet = _Paths.myWallet;
+  static const accountManagement = _Paths.accountManagement;
 }
 
 abstract class _Paths {
@@ -20,4 +22,6 @@ abstract class _Paths {
   static const String createRequest = '/create-request';
   static const String transactionBook = '/transaction-book';
   static const String budget = '/budget';
+  static const String myWallet = '/my-wallet';
+  static const String accountManagement = '/account-management';
 }

@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
 import 'package:thriftflow/View/Budget/budget.dart';
 import 'package:thriftflow/View/Home/home.dart';
+import 'package:thriftflow/View/Individual/AccountManagement/account_management.dart';
+import 'package:thriftflow/View/Individual/MyWallet/my_wallet.dart';
 import 'package:thriftflow/View/Individual/RequestSupport/create_request.dart';
 import 'package:thriftflow/View/Individual/RequestSupport/request_support.dart';
 import 'package:thriftflow/View/TransactionBook/transaction_book.dart';
@@ -20,5 +22,7 @@ class AppPage {
     GetPage(name: Routes.createRequest, page: () => CreateRequest()),
     GetPage(name: Routes.transactionBook, page: () => TransactionBook()),
     GetPage(name: Routes.budget, page: () => Budget()),
+    GetPage(name: Routes.myWallet, page: () => MyWallet()),
+    GetPage(name: Routes.accountManagement, page: () => AccountManagement()),
   ];
 }
