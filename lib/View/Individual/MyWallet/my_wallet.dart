@@ -5,6 +5,7 @@ import 'package:thriftflow/Component/tooltip.dart';
 import 'package:thriftflow/Controller/Individual/MyWallet/my_wallet_controller.dart';
 import 'package:thriftflow/Global/app_color.dart';
 import 'package:thriftflow/Service/device_helper.dart';
+import 'package:thriftflow/Utils/wallet_utils.dart';
 
 class MyWallet extends StatelessWidget {
   MyWallet({super.key});
@@ -57,12 +58,12 @@ class MyWallet extends StatelessWidget {
               ),
             ).paddingSymmetric(horizontal: 20, vertical: 10),
             _walletItem(
-              type: 1,
+              type: WalletUtils.WALLET_BASE,
               title: "Tiền mặt",
               subtitle: "300,000 đ",
             ),
             _walletItem(
-              type: 2,
+              type: WalletUtils.WALLET_CREDIT_CARD,
               title: "Ví tín dụng",
               subtitle: "0 đ",
             ),
@@ -75,12 +76,12 @@ class MyWallet extends StatelessWidget {
               ),
             ).paddingSymmetric(horizontal: 20, vertical: 10),
             _walletItem(
-              type: 1,
+              type: WalletUtils.WALLET_BASE,
               title: "Quỹ đen",
               subtitle: "500,000 đ",
             ),
             _walletItem(
-              type: 3,
+              type: WalletUtils.WALLET_SAVE,
               title: "Ví tiết kiệm",
               subtitle: "500,000 đ",
             ),
@@ -128,20 +129,20 @@ class MyWallet extends StatelessWidget {
                         runSpacing: 15,
                         children: [
                           _addWalletItem(
-                            type: 1,
+                            type: WalletUtils.WALLET_BASE,
                             title: "Ví cơ bản",
                             message: "Ví mà bạn tự nhập giao dịch của bạn.",
                             onPressed: () => {},
                           ),
                           _addWalletItem(
-                            type: 2,
+                            type: WalletUtils.WALLET_CREDIT_CARD,
                             title: "Ví tín dụng",
                             message:
                                 "Ví mà bạn tự có thể tự sắp xếp các giao dịch trong tài khoản tính dụng một cách đơn giản và nhắc nhở bạn trước ngày thanh toán.",
                             onPressed: () => {},
                           ),
                           _addWalletItem(
-                            type: 3,
+                            type: WalletUtils.WALLET_SAVE,
                             title: "Ví tiết kiệm",
                             message:
                                 "Ví mà bạn có thể nhập các khoản tiết kiệm của bạn.",
@@ -170,12 +171,6 @@ class MyWallet extends StatelessWidget {
     required int type,
     void Function()? onTap,
   }) {
-    final Map<int, String> icon = {
-      1: "assets/icons/wallet-base.svg",
-      2: "assets/icons/wallet-credit-card.svg",
-      3: "assets/icons/wallet-save.svg",
-    };
-
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -188,7 +183,7 @@ class MyWallet extends StatelessWidget {
             Row(
               children: [
                 SvgPicture.asset(
-                  icon[type]!,
+                  WalletUtils.getIconWalletByType(type),
                   height: 50,
                   width: 50,
                 ),
@@ -228,7 +223,7 @@ class MyWallet extends StatelessWidget {
     );
   }
 
-  Widget _addWalletItem({
+  GestureDetector _addWalletItem({
     required int type,
     required String title,
     required String message,
@@ -236,21 +231,6 @@ class MyWallet extends StatelessWidget {
     void Function()? onLongPress,
   }) {
     final width = (Get.width - 60) / 2;
-    final Map<int, Color> color = {
-      1: AppColor.walletBase,
-      2: AppColor.walletCreditCard,
-      3: AppColor.walletSave,
-    };
-    final Map<int, Color> colorBold = {
-      1: AppColor.walletBaseBold,
-      2: AppColor.walletCreditCardBold,
-      3: AppColor.walletSaveBold,
-    };
-    final Map<int, String> icon = {
-      1: "assets/icons/wallet-base-add.svg",
-      2: "assets/icons/wallet-credit-card-add.svg",
-      3: "assets/icons/wallet-save-add.svg",
-    };
 
     return GestureDetector(
       onTap: onPressed,
@@ -262,7 +242,7 @@ class MyWallet extends StatelessWidget {
             height: width / 1.6,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
-              color: color[type],
+              color: WalletUtils.getColorWalletByType(type),
             ),
           ),
           Positioned(
@@ -275,16 +255,15 @@ class MyWallet extends StatelessWidget {
                 width: 20,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: colorBold[type],
+                  color: WalletUtils.getColorBoldWalletByType(type),
                 ),
                 child: const Center(
                   child: Text(
                     "?",
                     style: TextStyle(
-                      fontSize: 16,
-                      color: AppColor.white,
-                      fontWeight: FontWeight.w900
-                    ),
+                        fontSize: 16,
+                        color: AppColor.white,
+                        fontWeight: FontWeight.w900),
                   ),
                 ),
               ),
@@ -296,11 +275,11 @@ class MyWallet extends StatelessWidget {
             child: RotationTransition(
               turns: const AlwaysStoppedAnimation(-20 / 360),
               child: SvgPicture.asset(
-                icon[type]!,
+                WalletUtils.getIconAddWalletByType(type),
                 height: width / 2.2,
                 width: width / 2.2,
                 colorFilter: ColorFilter.mode(
-                  colorBold[type]!,
+                  WalletUtils.getColorBoldWalletByType(type),
                   BlendMode.srcIn,
                 ),
               ),

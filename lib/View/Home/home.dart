@@ -5,6 +5,7 @@ import 'package:thriftflow/Component/tooltip.dart';
 import 'package:thriftflow/Controller/Home/home_controller.dart';
 import 'package:thriftflow/Global/app_color.dart';
 import 'package:thriftflow/Service/device_helper.dart';
+import 'package:thriftflow/Utils/wallet_utils.dart';
 
 class Home extends StatelessWidget {
   Home({super.key});
@@ -123,89 +124,39 @@ class Home extends StatelessWidget {
                   color: AppColor.main,
                   borderRadius: BorderRadius.circular(16)),
               child: Column(children: [
-                Container(
-                  decoration: const BoxDecoration(
-                    border: Border(
-                      bottom: BorderSide(
-                        color: AppColor.text4,
-                        width: 0.5,
-                      ),
-                    ),
-                  ),
-                  child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Ví của tôi",
-                          style: TextStyle(
-                            fontSize: DeviceHelper.getFontSize(14),
-                            color: AppColor.text1,
-                            fontWeight: FontWeight.w700,
-                          ),
-                        ),
-                        Text(
-                          "Xem tất cả",
-                          style: TextStyle(
-                            fontSize: DeviceHelper.getFontSize(12),
-                            color: AppColor.fourthMain,
-                            fontWeight: FontWeight.w700,
-                          ),
-                        ),
-                      ]).marginSymmetric(horizontal: 16, vertical: 12),
-                ).marginOnly(bottom: 12),
                 Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Container(
-                          padding: const EdgeInsets.all(5),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(300),
-                            color: AppColor.subMain,
-                          ),
-                          child: SvgPicture.asset(
-                            'assets/icons/wallet-money.svg',
-                            height: 25,
-                            width: 25,
-                          ),
-                        ).marginOnly(right: 12),
-                        Text(
-                          "Tiền mặt",
-                          style: TextStyle(
-                            fontSize: DeviceHelper.getFontSize(12),
-                            color: AppColor.text1,
-                            fontWeight: FontWeight.w700,
-                          ),
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Ví của tôi",
+                        style: TextStyle(
+                          fontSize: DeviceHelper.getFontSize(14),
+                          color: AppColor.text1,
+                          fontWeight: FontWeight.w700,
                         ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          "0",
-                          style: TextStyle(
-                            fontSize: DeviceHelper.getFontSize(12),
-                            color: AppColor.text1,
-                            fontWeight: FontWeight.w700,
-                          ),
+                      ),
+                      Text(
+                        "Xem tất cả",
+                        style: TextStyle(
+                          fontSize: DeviceHelper.getFontSize(12),
+                          color: AppColor.fourthMain,
+                          fontWeight: FontWeight.w700,
                         ),
-                        const SizedBox(width: 4),
-                        Text(
-                          "đ",
-                          style: TextStyle(
-                            fontSize: DeviceHelper.getFontSize(12),
-                            color: AppColor.text1,
-                            fontWeight: FontWeight.w700,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ).paddingSymmetric(horizontal: 16).marginOnly(bottom: 12),
+                      ),
+                    ]).marginSymmetric(horizontal: 16, vertical: 12),
+                _myWalletItem(
+                  type: WalletUtils.WALLET_BASE,
+                  name: "Tiền mặt",
+                  amount: "15,000",
+                  acronym: "đ",
+                ),
+                _myWalletItem(
+                  type: WalletUtils.WALLET_CREDIT_CARD,
+                  name: "Thẻ tín dụng",
+                  amount: "0",
+                  acronym: "đ",
+                ),
               ]),
             ).marginSymmetric(horizontal: 20, vertical: 12),
             Row(
@@ -279,7 +230,7 @@ class Home extends StatelessWidget {
                                                     "Tổng đã chi",
                                                     style: TextStyle(
                                                       fontSize: DeviceHelper
-                                                          .getFontSize(12),
+                                                          .getFontSize(13),
                                                       color: AppColor.grey,
                                                       fontWeight:
                                                           FontWeight.w400,
@@ -332,7 +283,7 @@ class Home extends StatelessWidget {
                                                     "Tổng thu",
                                                     style: TextStyle(
                                                       fontSize: DeviceHelper
-                                                          .getFontSize(12),
+                                                          .getFontSize(13),
                                                       color: AppColor.grey,
                                                       fontWeight:
                                                           FontWeight.w400,
@@ -795,6 +746,91 @@ class Home extends StatelessWidget {
                 ),
               ],
             ).paddingSymmetric(horizontal: 20, vertical: 6),
+            Container(
+              margin: const EdgeInsets.only(bottom: 50),
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              decoration: BoxDecoration(
+                  color: AppColor.main,
+                  borderRadius: BorderRadius.circular(16)),
+              child: Center(
+                child: Text(
+                  "Giao dịch đã thêm sẽ hiển thị ở đây",
+                  style: TextStyle(
+                    fontSize: DeviceHelper.getFontSize(13),
+                    color: AppColor.grey,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ).marginSymmetric(vertical: 30),
+              ),
+            ).marginSymmetric(horizontal: 20),
+          ],
+        ),
+      ),
+    );
+  }
+
+  GestureDetector _myWalletItem({
+    required int type,
+    required String name,
+    required String amount,
+    required String acronym,
+    void Function()? onTap,
+  }) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+        decoration: const BoxDecoration(
+          border: Border(
+            top: BorderSide(
+              color: AppColor.subMain,
+              width: 1,
+            ),
+          ),
+        ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SvgPicture.asset(
+                  WalletUtils.getIconWalletByType(type),
+                  height: 40,
+                  width: 40,
+                ).marginOnly(right: 12),
+                Text(
+                  name,
+                  style: TextStyle(
+                    fontSize: DeviceHelper.getFontSize(12),
+                    color: AppColor.text1,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Text(
+                  amount,
+                  style: TextStyle(
+                    fontSize: DeviceHelper.getFontSize(12),
+                    color: AppColor.text1,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+                const SizedBox(width: 4),
+                Text(
+                  acronym,
+                  style: TextStyle(
+                    fontSize: DeviceHelper.getFontSize(12),
+                    color: AppColor.text1,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),

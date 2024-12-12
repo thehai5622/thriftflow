@@ -4,7 +4,7 @@ import 'package:thriftflow/Utils/utils.dart';
 class HomeController extends GetxController {
   RxBool isShowBalance = false.obs;
   RxInt reportTabIndex = 0.obs;
-  RxInt spendingDetailsTabIndex = 0.obs;
+  RxInt spendingDetailsTabIndex = 1.obs;
   RxInt reportTrendTabIndex = 0.obs;
   RxInt reportExpenseTabIndex = 0.obs;
 
