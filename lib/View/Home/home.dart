@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:thriftflow/Component/tooltip.dart';
 import 'package:thriftflow/Controller/Home/home_controller.dart';
 import 'package:thriftflow/Global/app_color.dart';
 import 'package:thriftflow/Service/device_helper.dart';
@@ -69,10 +70,8 @@ class Home extends StatelessWidget {
               ),
             ],
           ),
-          Tooltip(
+          MyTooltip(
               message: "Được tính dựa trên số dư của các ví nằm trong tổng",
-              preferBelow: true,
-              triggerMode: TooltipTriggerMode.tap,
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
@@ -563,7 +562,7 @@ class Home extends StatelessWidget {
                             controller.changeReportTabIndex();
                           },
                           child: const Icon(Icons.arrow_back_ios,
-                                  size: 15, color: AppColor.fourthMain)
+                                  size: 20, color: AppColor.fourthMain)
                               .marginOnly(left: 20),
                         ),
                         Obx(
@@ -583,7 +582,7 @@ class Home extends StatelessWidget {
                             controller.changeReportTabIndex();
                           },
                           child: const Icon(Icons.arrow_forward_ios,
-                                  size: 15, color: AppColor.fourthMain)
+                                  size: 20, color: AppColor.fourthMain)
                               .marginOnly(right: 20),
                         ),
                       ],

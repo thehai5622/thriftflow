@@ -14,4 +14,14 @@ class AppColor {
   static const purple  = Color(0xFF605EA1);
   static const orange  = Color(0xFFFAB12F);
   static const greyLine = Color(0xFFDDDDDD);
+
+  // Wallet theme
+  static const walletBase = Color(0xFF4CC9FE);
+  static const walletBaseBold = Color(0xFF37AFE1);
+  static const walletCreditCard = Color(0xFFFF8E31);
+  static const walletCreditCardBold = Color(0xFFED7425);
+  static const walletSave = Color(0xFF0575A5);
+  static const walletSaveBold = Color(0xFF025E90);
+  static const walletBank = Color(0xFF90DFAA);
+  static const walletBankBold = Color(0xFF2C9984);
 }

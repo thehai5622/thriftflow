@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:thriftflow/Component/tooltip.dart';
 import 'package:thriftflow/Controller/Individual/MyWallet/my_wallet_controller.dart';
 import 'package:thriftflow/Global/app_color.dart';
 import 'package:thriftflow/Service/device_helper.dart';
@@ -56,12 +57,12 @@ class MyWallet extends StatelessWidget {
               ),
             ).paddingSymmetric(horizontal: 20, vertical: 10),
             _walletItem(
-              icon: "assets/icons/wallet-base.svg",
+              type: 1,
               title: "Tiền mặt",
               subtitle: "300,000 đ",
             ),
             _walletItem(
-              icon: "assets/icons/wallet-credit-card.svg",
+              type: 2,
               title: "Ví tín dụng",
               subtitle: "0 đ",
             ),
@@ -74,12 +75,12 @@ class MyWallet extends StatelessWidget {
               ),
             ).paddingSymmetric(horizontal: 20, vertical: 10),
             _walletItem(
-              icon: "assets/icons/wallet-base.svg",
+              type: 1,
               title: "Quỹ đen",
               subtitle: "500,000 đ",
             ),
             _walletItem(
-              icon: "assets/icons/wallet-save.svg",
+              type: 3,
               title: "Ví tiết kiệm",
               subtitle: "500,000 đ",
             ),
@@ -91,7 +92,69 @@ class MyWallet extends StatelessWidget {
         elevation: 0,
         shape: const CircleBorder(),
         onPressed: () {
-          print('on press');
+          showModalBottomSheet<void>(
+            context: context,
+            sheetAnimationStyle: AnimationStyle(
+              duration: const Duration(milliseconds: 700),
+              reverseDuration: const Duration(milliseconds: 700),
+              curve: Curves.fastLinearToSlowEaseIn,
+              reverseCurve: Curves.fastLinearToSlowEaseIn,
+            ),
+            builder: (BuildContext context) {
+              return Container(
+                width: double.infinity,
+                color: AppColor.main,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "Thêm ví",
+                        style: TextStyle(
+                          fontSize: DeviceHelper.getFontSize(16),
+                          color: AppColor.text1,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ).paddingSymmetric(horizontal: 16, vertical: 10),
+                    ),
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      margin: const EdgeInsets.only(bottom: 30),
+                      child: Wrap(
+                        spacing: 20,
+                        direction: Axis.horizontal,
+                        runSpacing: 15,
+                        children: [
+                          _addWalletItem(
+                            type: 1,
+                            title: "Ví cơ bản",
+                            message: "Ví mà bạn tự nhập giao dịch của bạn.",
+                            onPressed: () => {},
+                          ),
+                          _addWalletItem(
+                            type: 2,
+                            title: "Ví tín dụng",
+                            message:
+                                "Ví mà bạn tự có thể tự sắp xếp các giao dịch trong tài khoản tính dụng một cách đơn giản và nhắc nhở bạn trước ngày thanh toán.",
+                            onPressed: () => {},
+                          ),
+                          _addWalletItem(
+                            type: 3,
+                            title: "Ví tiết kiệm",
+                            message:
+                                "Ví mà bạn có thể nhập các khoản tiết kiệm của bạn.",
+                            onPressed: () => {},
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            },
+          ).then((value) {});
         },
         child: const Icon(
           Icons.add,
@@ -102,11 +165,17 @@ class MyWallet extends StatelessWidget {
   }
 
   GestureDetector _walletItem({
-    required String icon,
     required String title,
     required String subtitle,
+    required int type,
     void Function()? onTap,
   }) {
+    final Map<int, String> icon = {
+      1: "assets/icons/wallet-base.svg",
+      2: "assets/icons/wallet-credit-card.svg",
+      3: "assets/icons/wallet-save.svg",
+    };
+
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -119,7 +188,7 @@ class MyWallet extends StatelessWidget {
             Row(
               children: [
                 SvgPicture.asset(
-                  icon,
+                  icon[type]!,
                   height: 50,
                   width: 50,
                 ),
@@ -155,6 +224,102 @@ class MyWallet extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _addWalletItem({
+    required int type,
+    required String title,
+    required String message,
+    void Function()? onPressed,
+    void Function()? onLongPress,
+  }) {
+    final width = (Get.width - 60) / 2;
+    final Map<int, Color> color = {
+      1: AppColor.walletBase,
+      2: AppColor.walletCreditCard,
+      3: AppColor.walletSave,
+    };
+    final Map<int, Color> colorBold = {
+      1: AppColor.walletBaseBold,
+      2: AppColor.walletCreditCardBold,
+      3: AppColor.walletSaveBold,
+    };
+    final Map<int, String> icon = {
+      1: "assets/icons/wallet-base-add.svg",
+      2: "assets/icons/wallet-credit-card-add.svg",
+      3: "assets/icons/wallet-save-add.svg",
+    };
+
+    return GestureDetector(
+      onTap: onPressed,
+      onLongPress: onLongPress,
+      child: Stack(
+        children: [
+          Container(
+            width: width,
+            height: width / 1.6,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              color: color[type],
+            ),
+          ),
+          Positioned(
+            top: 4,
+            right: 4,
+            child: MyTooltip(
+              message: message,
+              child: Container(
+                height: 20,
+                width: 20,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: colorBold[type],
+                ),
+                child: const Center(
+                  child: Text(
+                    "?",
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: AppColor.white,
+                      fontWeight: FontWeight.w900
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 8,
+            right: 20,
+            child: RotationTransition(
+              turns: const AlwaysStoppedAnimation(-20 / 360),
+              child: SvgPicture.asset(
+                icon[type]!,
+                height: width / 2.2,
+                width: width / 2.2,
+                colorFilter: ColorFilter.mode(
+                  colorBold[type]!,
+                  BlendMode.srcIn,
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            top: 4,
+            left: 10,
+            right: 30,
+            child: Text(
+              title,
+              style: TextStyle(
+                fontSize: DeviceHelper.getFontSize(16),
+                color: AppColor.white,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
