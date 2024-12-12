@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:thriftflow/View/Budget/budget.dart';
+import 'package:thriftflow/View/Home/Notification/notification.dart';
 import 'package:thriftflow/View/Home/home.dart';
 import 'package:thriftflow/View/Individual/AccountManagement/account_management.dart';
 import 'package:thriftflow/View/Individual/MyWallet/my_wallet.dart';
@@ -24,5 +25,6 @@ class AppPage {
     GetPage(name: Routes.budget, page: () => Budget()),
     GetPage(name: Routes.myWallet, page: () => MyWallet()),
     GetPage(name: Routes.accountManagement, page: () => AccountManagement()),
+    GetPage(name: Routes.notification, page: () => Notification()),
   ];
 }

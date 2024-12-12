@@ -11,6 +11,7 @@ abstract class Routes {
   static const budget = _Paths.budget;
   static const myWallet = _Paths.myWallet;
   static const accountManagement = _Paths.accountManagement;
+  static const notification = _Paths.notification;
 }
 
 abstract class _Paths {
@@ -24,4 +25,5 @@ abstract class _Paths {
   static const String budget = '/budget';
   static const String myWallet = '/my-wallet';
   static const String accountManagement = '/account-management';
+  static const String notification= '/notification';
 }

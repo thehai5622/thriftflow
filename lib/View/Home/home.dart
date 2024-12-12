@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:thriftflow/Component/tooltip.dart';
 import 'package:thriftflow/Controller/Home/home_controller.dart';
 import 'package:thriftflow/Global/app_color.dart';
+import 'package:thriftflow/Route/app_page.dart';
 import 'package:thriftflow/Service/device_helper.dart';
 import 'package:thriftflow/Utils/wallet_utils.dart';
 
@@ -29,7 +30,7 @@ class Home extends StatelessWidget {
                     ? Row(
                         children: [
                           Text(
-                            "0",
+                            "15,000",
                             style: TextStyle(
                               fontSize: DeviceHelper.getFontSize(22),
                               color: AppColor.text1,
@@ -102,14 +103,14 @@ class Home extends StatelessWidget {
         ]),
         actions: [
           IconButton(
+            onPressed: () {
+              Get.toNamed(Routes.notification);
+            },
             icon: const Icon(
               Icons.notifications_rounded,
               color: AppColor.text1,
             ),
             tooltip: 'Thông báo',
-            onPressed: () {
-              // Get.toNamed(Routes.notification);
-            },
           )
         ],
       ),
@@ -670,58 +671,26 @@ class Home extends StatelessWidget {
                     ),
                   ),
                 ).marginSymmetric(vertical: 12),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Container(
-                          padding: const EdgeInsets.all(5),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(300),
-                            color: AppColor.subMain,
-                          ),
-                          child: SvgPicture.asset(
-                            'assets/icons/wallet-money.svg',
-                            height: 25,
-                            width: 25,
-                          ),
-                        ).marginOnly(right: 12),
-                        Text(
-                          "Tiền mặt",
-                          style: TextStyle(
-                            fontSize: DeviceHelper.getFontSize(12),
-                            color: AppColor.text1,
-                            fontWeight: FontWeight.w700,
-                          ),
-                        ),
-                      ],
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Container(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                    margin: const EdgeInsets.only(bottom: 12),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        color: AppColor.thirdMain),
+                    child: Text(
+                      "Ví dụ",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: DeviceHelper.getFontSize(13),
+                        color: AppColor.white,
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
-                    Row(
-                      children: [
-                        Text(
-                          "0",
-                          style: TextStyle(
-                            fontSize: DeviceHelper.getFontSize(12),
-                            color: AppColor.text1,
-                            fontWeight: FontWeight.w700,
-                          ),
-                        ),
-                        const SizedBox(width: 4),
-                        Text(
-                          "đ",
-                          style: TextStyle(
-                            fontSize: DeviceHelper.getFontSize(12),
-                            color: AppColor.text1,
-                            fontWeight: FontWeight.w700,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ).marginOnly(bottom: 12),
+                  ),
+                ),
               ]),
             ).marginSymmetric(horizontal: 20),
             Row(
