@@ -22,6 +22,8 @@ class AppColor {
   static const orange  = Color(0xFFFAB12F);
 
   // Wallet theme
+  static const walletAll = Color(0xFFFC6F58);
+  static const walletAllBold = Color(0xFFF1543F);
   static const walletBase = Color(0xFF4CC9FE);
   static const walletBaseBold = Color(0xFF37AFE1);
   static const walletCreditCard = Color(0xFFFF8E31);

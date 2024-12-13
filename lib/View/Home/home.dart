@@ -137,12 +137,17 @@ class Home extends StatelessWidget {
                           fontWeight: FontWeight.w700,
                         ),
                       ),
-                      Text(
-                        "Xem tất cả",
-                        style: TextStyle(
-                          fontSize: DeviceHelper.getFontSize(12),
-                          color: AppColor.fourthMain,
-                          fontWeight: FontWeight.w700,
+                      GestureDetector(
+                        onTap: () {
+                          Get.toNamed(Routes.walletOverview);
+                        },
+                        child: Text(
+                          "Xem tất cả",
+                          style: TextStyle(
+                            fontSize: DeviceHelper.getFontSize(12),
+                            color: AppColor.fourthMain,
+                            fontWeight: FontWeight.w700,
+                          ),
                         ),
                       ),
                     ]).marginSymmetric(horizontal: 16, vertical: 12),

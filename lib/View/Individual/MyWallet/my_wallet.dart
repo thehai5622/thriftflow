@@ -31,6 +31,20 @@ class MyWallet extends StatelessWidget {
         actions: [
           GestureDetector(
               onTap: () {
+                // Sort
+              },
+              child: SvgPicture.asset(
+                "assets/icons/sort.svg",
+                height: 25,
+                width: 25,
+                colorFilter: const ColorFilter.mode(
+                  AppColor.text1,
+                  BlendMode.srcIn,
+                ),
+              )),
+          const SizedBox(width: 25),
+          GestureDetector(
+              onTap: () {
                 // Search
               },
               child: SvgPicture.asset(

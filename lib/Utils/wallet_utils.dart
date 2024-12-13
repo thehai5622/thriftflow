@@ -2,24 +2,30 @@ import 'package:flutter/material.dart';
 import 'package:thriftflow/Global/app_color.dart';
 
 class WalletUtils {
+  static const int WALLET_ALL = 0;
   static const int WALLET_BASE = 1;
   static const int WALLET_CREDIT_CARD = 2;
   static const int WALLET_SAVE = 3;
+  static const int WALLET_BANK = 4;
 
   static String getIconWalletByType(int type) {
     final Map<int, String> icon = {
+      0: "assets/icons/wallet-all.svg",
       1: "assets/icons/wallet-base.svg",
       2: "assets/icons/wallet-credit-card.svg",
       3: "assets/icons/wallet-save.svg",
+      4: "assets/icons/wallet-bank.svg",
     };
     return icon[type] ?? "assets/icons/wallet-base.svg";
   }
 
   static String getIconAddWalletByType(int type) {
     final Map<int, String> icon = {
+      0: "assets/icons/wallet-all-add.svg",
       1: "assets/icons/wallet-base-add.svg",
       2: "assets/icons/wallet-credit-card-add.svg",
       3: "assets/icons/wallet-save-add.svg",
+      4: "assets/icons/wallet-bank-add.svg",
     };
     return icon[type] ?? "assets/icons/wallet-base-add.svg";
   }
