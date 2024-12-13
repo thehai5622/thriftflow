@@ -13,6 +13,7 @@ abstract class Routes {
   static const accountManagement = _Paths.accountManagement;
   static const notification = _Paths.notification;
   static const walletOverview = _Paths.walletOverview;
+  static const walletGuide = _Paths.walletGuide;
 }
 
 abstract class _Paths {
@@ -28,4 +29,5 @@ abstract class _Paths {
   static const String accountManagement = '/account-management';
   static const String notification = '/notification';
   static const String walletOverview = '/wallet-overview';
+  static const String walletGuide = '/wallet-guide';
 }

@@ -32,7 +32,7 @@ class WalletOverview extends StatelessWidget {
         actions: [
           GestureDetector(
               onTap: () {
-                Get.toNamed(Routes.myWallet);
+                Get.toNamed(Routes.walletGuide);
               },
               child: SvgPicture.asset(
                 "assets/icons/info-square.svg",
@@ -241,7 +241,7 @@ class WalletOverview extends StatelessWidget {
                 ),
               ],
             ),
-            const Icon(
+            if (type != WalletUtils.WALLET_ALL) const Icon(
               Icons.more_vert,
               size: 25,
               color: AppColor.grey,
