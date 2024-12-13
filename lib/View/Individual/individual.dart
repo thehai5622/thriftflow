@@ -143,7 +143,7 @@ class Individual extends StatelessWidget {
           color: AppColor.main,
           border: Border(
             bottom: BorderSide(
-              color: AppColor.greyLine,
+              color: AppColor.subMain,
               width: 1,
             ),
           ),

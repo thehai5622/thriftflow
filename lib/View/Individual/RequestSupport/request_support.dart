@@ -62,7 +62,7 @@ class RequestSupport extends StatelessWidget {
                       decoration: const BoxDecoration(
                           border: Border(
                               bottom: BorderSide(
-                                  color: AppColor.greyLine, width: 1))),
+                                  color: AppColor.subMain, width: 1))),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [

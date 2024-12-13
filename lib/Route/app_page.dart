@@ -4,6 +4,7 @@ import 'package:thriftflow/View/Home/Notification/notification.dart';
 import 'package:thriftflow/View/Home/home.dart';
 import 'package:thriftflow/View/Individual/AccountManagement/account_management.dart';
 import 'package:thriftflow/View/Individual/MyWallet/my_wallet.dart';
+import 'package:thriftflow/View/Individual/MyWallet/wallet_overview.dart';
 import 'package:thriftflow/View/Individual/RequestSupport/create_request.dart';
 import 'package:thriftflow/View/Individual/RequestSupport/request_support.dart';
 import 'package:thriftflow/View/TransactionBook/transaction_book.dart';
@@ -26,5 +27,6 @@ class AppPage {
     GetPage(name: Routes.myWallet, page: () => MyWallet()),
     GetPage(name: Routes.accountManagement, page: () => AccountManagement()),
     GetPage(name: Routes.notification, page: () => Notification()),
+    GetPage(name: Routes.walletOverview, page: () => WalletOverview()),
   ];
 }

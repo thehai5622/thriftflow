@@ -218,7 +218,7 @@ class Home extends StatelessWidget {
                                                               .value ==
                                                           0
                                                       ? AppColor.fourthMain
-                                                      : AppColor.greyLine,
+                                                      : AppColor.subMain,
                                                   width: 2,
                                                 ),
                                               ),
@@ -271,7 +271,7 @@ class Home extends StatelessWidget {
                                                               .value ==
                                                           1
                                                       ? AppColor.purple
-                                                      : AppColor.greyLine,
+                                                      : AppColor.subMain,
                                                   width: 2,
                                                 ),
                                               ),
