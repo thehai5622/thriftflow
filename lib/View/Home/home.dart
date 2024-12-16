@@ -367,6 +367,14 @@ class Home extends StatelessWidget {
                                     ),
                                   ],
                                 ).marginSymmetric(horizontal: 16, vertical: 6),
+                                Text(
+                                  "Nhập giao dịch để xem báo cáo",
+                                  style: TextStyle(
+                                    fontSize: DeviceHelper.getFontSize(13),
+                                    color: AppColor.grey,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ).marginSymmetric(horizontal: 16, vertical: 40),
                               ]
                             : [
                                 Container(
@@ -507,6 +515,14 @@ class Home extends StatelessWidget {
                                     ),
                                   ],
                                 ),
+                                Text(
+                                  "Nhập giao dịch để xem báo cáo",
+                                  style: TextStyle(
+                                    fontSize: DeviceHelper.getFontSize(13),
+                                    color: AppColor.grey,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ).marginSymmetric(horizontal: 16, vertical: 40),
                               ],
                       ),
                     ),
