@@ -31,10 +31,12 @@ class MyApp extends StatelessWidget {
           appBarTheme: const AppBarTheme(
             titleSpacing: 20,
             elevation: 0,
-            foregroundColor: Colors.white,
+            foregroundColor: AppColor.text1,
             backgroundColor: AppColor.main,
             systemOverlayStyle: SystemUiOverlayStyle(
-              statusBarColor: Colors.transparent,
+              statusBarColor: AppColor.transparent,
+              statusBarIconBrightness: Brightness.dark,
+              statusBarBrightness: Brightness.dark,
             ),
           ),
         ),

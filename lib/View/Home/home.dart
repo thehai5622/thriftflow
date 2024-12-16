@@ -699,8 +699,9 @@ class Home extends StatelessWidget {
                         const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                     margin: const EdgeInsets.only(bottom: 12),
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        color: AppColor.thirdMain),
+                      borderRadius: BorderRadius.circular(8),
+                      color: AppColor.fourthMain.withOpacity(0.3),
+                    ),
                     child: Text(
                       "Ví dụ",
                       textAlign: TextAlign.center,

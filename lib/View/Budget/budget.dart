@@ -45,7 +45,7 @@ class Budget extends StatelessWidget {
                     Icons.arrow_drop_down_rounded,
                     size: 20,
                     color: AppColor.grey,
-                  )
+                  ),
                 ],
               )),
           const SizedBox(width: 20),
