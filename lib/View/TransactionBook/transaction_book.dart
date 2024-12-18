@@ -151,6 +151,12 @@ class TransactionBook extends StatelessWidget {
                 tabs: controller.listTab.map((e) => Tab(text: e)).toList(),
                 controller: controller.tabController,
                 indicatorSize: TabBarIndicatorSize.tab,
+                indicatorPadding: const EdgeInsets.symmetric(horizontal: 16),
+                tabAlignment: TabAlignment.center,
+                labelStyle: TextStyle(
+                  fontSize: DeviceHelper.getFontSize(14),
+                  fontWeight: FontWeight.w500,
+                ),
               ),
             ],
           ),
@@ -162,10 +168,13 @@ class TransactionBook extends StatelessWidget {
           controller: controller.tabController,
           children: controller.listTab
               .asMap()
-              .map((i, e) => MapEntry(
-                  i,
-                  Center(
-                    child: Text("Screen $i"),
+              .map((index, element) => MapEntry(
+                  index,
+                  Container(
+                    color: AppColor.subMain,
+                    child: Center(
+                      child: Text("Screen $index"),
+                    ),
                   )))
               .values
               .toList(),
@@ -180,25 +189,17 @@ class TransactionBook extends StatelessWidget {
                 onPressed: () {
                   controller.backToThisTime();
                 },
-                child: controller.isPrevious
-                    ? SvgPicture.asset(
-                        "assets/icons/previous.svg",
-                        height: 20,
-                        width: 20,
-                        colorFilter: const ColorFilter.mode(
-                          AppColor.text1,
-                          BlendMode.srcIn,
-                        ),
-                      )
-                    : SvgPicture.asset(
-                        "assets/icons/next.svg",
-                        height: 20,
-                        width: 20,
-                        colorFilter: const ColorFilter.mode(
-                          AppColor.text1,
-                          BlendMode.srcIn,
-                        ),
-                      ),
+                child: SvgPicture.asset(
+                  controller.isPrevious.value
+                      ? "assets/icons/previous.svg"
+                      : "assets/icons/next.svg",
+                  height: 20,
+                  width: 20,
+                  colorFilter: const ColorFilter.mode(
+                    AppColor.text1,
+                    BlendMode.srcIn,
+                  ),
+                ),
               ),
       ),
     );

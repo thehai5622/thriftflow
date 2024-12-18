@@ -1,38 +1,49 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:thriftflow/Utils/utils.dart';
 
 class TransactionBookController extends GetxController
     with GetSingleTickerProviderStateMixin {
   late TabController tabController;
-  RxInt type = 0.obs;
   RxBool isThisTime = true.obs;
-  bool isPrevious = true;
-  List<dynamic> listTab = [
-    "11/2024",
-    "Tháng trước",
-    "Tháng này",
-    "Tương lai",
-  ];
+  RxBool isPrevious = true.obs;
+  RxString type = "month".obs;
+  RxList<dynamic> listTab = [].obs;
+  int initTabIndex = 0;
 
   @override
-  void onInit() {
+  void onInit() async {
     super.onInit();
-
+    listTab.value = [
+      "05/2024",
+      "06/2024",
+      "07/2024",
+      "08/2024",
+      "09/2024",
+      "10/2024",
+      "11/2024",
+      "Tháng trước",
+      "Tháng này",
+      "Tương lai",
+    ];
+    // listTab = ["Tất cả"];
+    initTabIndex = listTab.length > 2 ? listTab.length - 2 : 0;
     tabController = TabController(
-      length: 4,
+      length: listTab.length,
       vsync: this,
-      initialIndex: listTab.length - 2,
+      initialIndex: initTabIndex,
     );
-
     tabController.addListener(() {
-      isThisTime.value = tabController.index == listTab.length - 2;
-      isPrevious = tabController.index > listTab.length - 2;
+      isThisTime.value = tabController.index == initTabIndex;
+      isPrevious.value = tabController.index > initTabIndex;
     });
+    backToThisTime();
+    print("test: ${await Utils.getStringValueWithKey("transaction_book-type")}");
   }
 
-  backToThisTime() {
-    if (tabController.index != listTab.length - 2) {
-      tabController.animateTo(2);
+  void backToThisTime() {
+    if (tabController.index != initTabIndex) {
+      tabController.animateTo(initTabIndex);
     }
   }
 }
