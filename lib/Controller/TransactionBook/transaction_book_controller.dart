@@ -5,7 +5,14 @@ class TransactionBookController extends GetxController
     with GetSingleTickerProviderStateMixin {
   late TabController tabController;
   RxInt type = 0.obs;
-  List<Map<String, Object>> listTab = [];
+  RxBool isThisTime = true.obs;
+  bool isPrevious = true;
+  List<dynamic> listTab = [
+    "11/2024",
+    "Tháng trước",
+    "Tháng này",
+    "Tương lai",
+  ];
 
   @override
   void onInit() {
@@ -14,11 +21,18 @@ class TransactionBookController extends GetxController
     tabController = TabController(
       length: 4,
       vsync: this,
-      initialIndex: 2,
+      initialIndex: listTab.length - 2,
     );
 
     tabController.addListener(() {
-      print(tabController.index);
+      isThisTime.value = tabController.index == listTab.length - 2;
+      isPrevious = tabController.index > listTab.length - 2;
     });
+  }
+
+  backToThisTime() {
+    if (tabController.index != listTab.length - 2) {
+      tabController.animateTo(2);
+    }
   }
 }

@@ -84,7 +84,8 @@ class TransactionBook extends StatelessWidget {
                                 ),
                                 child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
                                       SvgPicture.asset(
@@ -96,7 +97,8 @@ class TransactionBook extends StatelessWidget {
                                       Text(
                                         "Tổng cộng",
                                         style: TextStyle(
-                                          fontSize: DeviceHelper.getFontSize(14),
+                                          fontSize:
+                                              DeviceHelper.getFontSize(14),
                                           color: AppColor.text1,
                                           fontWeight: FontWeight.w700,
                                         ),
@@ -146,26 +148,7 @@ class TransactionBook extends StatelessWidget {
                 isScrollable: true,
                 indicatorColor: AppColor.text1,
                 overlayColor: WidgetStateProperty.all(Colors.transparent),
-                tabs: const [
-                  Tab(
-                    icon: Icon(Icons.person),
-                  ),
-                  Tab(
-                    icon: Icon(
-                      Icons.add,
-                    ),
-                  ),
-                  Tab(
-                    icon: Icon(
-                      Icons.deck,
-                    ),
-                  ),
-                  Tab(
-                    icon: Icon(
-                      Icons.child_care,
-                    ),
-                  ),
-                ],
+                tabs: controller.listTab.map((e) => Tab(text: e)).toList(),
                 controller: controller.tabController,
                 indicatorSize: TabBarIndicatorSize.tab,
               ),
@@ -177,45 +160,46 @@ class TransactionBook extends StatelessWidget {
         color: AppColor.subMain,
         child: TabBarView(
           controller: controller.tabController,
-          children: const [
-            Center(
-              child: Text(
-                'Screen 1',
-              ),
-            ),
-            Center(
-              child: Text(
-                'Screen 2',
-              ),
-            ),
-            Center(
-              child: Text(
-                'Screen 3',
-              ),
-            ),
-            Center(
-              child: Text(
-                'Screen 4',
-              ),
-            ),
-          ],
+          children: controller.listTab
+              .asMap()
+              .map((i, e) => MapEntry(
+                  i,
+                  Center(
+                    child: Text("Screen $i"),
+                  )))
+              .values
+              .toList(),
         ),
       ),
-      floatingActionButton: FloatingActionButton.small(
-        backgroundColor: AppColor.thirdMain,
-        elevation: 0,
-        onPressed: () {
-          print('on press');
-        },
-        child: SvgPicture.asset(
-          "assets/icons/previous.svg",
-          height: 20,
-          width: 20,
-          colorFilter: const ColorFilter.mode(
-            AppColor.text1,
-            BlendMode.srcIn,
-          ),
-        ),
+      floatingActionButton: Obx(
+        () => controller.isThisTime.value
+            ? const SizedBox()
+            : FloatingActionButton.small(
+                backgroundColor: AppColor.thirdMain,
+                elevation: 0,
+                onPressed: () {
+                  controller.backToThisTime();
+                },
+                child: controller.isPrevious
+                    ? SvgPicture.asset(
+                        "assets/icons/previous.svg",
+                        height: 20,
+                        width: 20,
+                        colorFilter: const ColorFilter.mode(
+                          AppColor.text1,
+                          BlendMode.srcIn,
+                        ),
+                      )
+                    : SvgPicture.asset(
+                        "assets/icons/next.svg",
+                        height: 20,
+                        width: 20,
+                        colorFilter: const ColorFilter.mode(
+                          AppColor.text1,
+                          BlendMode.srcIn,
+                        ),
+                      ),
+              ),
       ),
     );
   }
