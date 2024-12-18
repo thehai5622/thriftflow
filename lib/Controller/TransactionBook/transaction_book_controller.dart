@@ -1,15 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:thriftflow/Utils/utils.dart';
 
 class TransactionBookController extends GetxController
     with GetSingleTickerProviderStateMixin {
   late TabController tabController;
   RxBool isThisTime = true.obs;
   RxBool isPrevious = true.obs;
-  RxString type = "month".obs;
+  // [By Group, By transactions]
+  RxString typeTransaction = "all".obs;
+  // [day, week, month, quarter, year, all, custom]
+  RxString typeTime = "month".obs;
   RxList<dynamic> listTab = [].obs;
   int initTabIndex = 0;
+  var timeMap = {
+    "day": "",
+    "week": "Tính tuần",
+    "month": "Tháng",
+    "quarter": "Quý",
+    "year": "Nam",
+    "all": [
+      {
+        "value": "all",
+        "title": "Tất cả",
+      },
+    ],
+    "customize": [
+      {
+        "value": "customize",
+        "title": "Tùy chỉnh",
+      },
+    ]
+  };
 
   @override
   void onInit() async {
@@ -38,7 +59,6 @@ class TransactionBookController extends GetxController
       isPrevious.value = tabController.index > initTabIndex;
     });
     backToThisTime();
-    print("test: ${await Utils.getStringValueWithKey("transaction_book-type")}");
   }
 
   void backToThisTime() {
