@@ -6,6 +6,7 @@ import 'package:thriftflow/Controller/TransactionBook/transaction_book_controlle
 import 'package:thriftflow/Global/app_color.dart';
 import 'package:thriftflow/Route/app_page.dart';
 import 'package:thriftflow/Service/device_helper.dart';
+import 'package:thriftflow/Utils/datetime_utils.dart';
 
 class TransactionBook extends StatelessWidget {
   TransactionBook({super.key});
@@ -119,13 +120,18 @@ class TransactionBook extends StatelessWidget {
                         right: 16,
                         child: Row(
                           children: [
-                            SvgPicture.asset(
-                              "assets/icons/search.svg",
-                              height: 25,
-                              width: 25,
-                              colorFilter: const ColorFilter.mode(
-                                AppColor.text1,
-                                BlendMode.srcIn,
+                            GestureDetector(
+                              onTap: () {
+                                print(DateTimeUtils.getInstance().getListTime(type: 'year'));
+                              },
+                              child: SvgPicture.asset(
+                                "assets/icons/search.svg",
+                                height: 25,
+                                width: 25,
+                                colorFilter: const ColorFilter.mode(
+                                  AppColor.text1,
+                                  BlendMode.srcIn,
+                                ),
                               ),
                             ),
                             const SizedBox(width: 8),
@@ -148,7 +154,9 @@ class TransactionBook extends StatelessWidget {
                 isScrollable: true,
                 indicatorColor: AppColor.text1,
                 overlayColor: WidgetStateProperty.all(Colors.transparent),
-                tabs: controller.listTab.map((e) => Tab(text: e)).toList(),
+                tabs: controller.listTab
+                    .map((value) => Tab(text: value['title']))
+                    .toList(),
                 controller: controller.tabController,
                 indicatorSize: TabBarIndicatorSize.tab,
                 indicatorPadding: const EdgeInsets.symmetric(horizontal: 16),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:thriftflow/Utils/datetime_utils.dart';
 
 class TransactionBookController extends GetxController
     with GetSingleTickerProviderStateMixin {
@@ -10,14 +11,14 @@ class TransactionBookController extends GetxController
   RxString typeTransaction = "all".obs;
   // [day, week, month, quarter, year, all, custom]
   RxString typeTime = "month".obs;
-  RxList<dynamic> listTab = [].obs;
+  RxList listTab = [].obs;
   int initTabIndex = 0;
-  var timeMap = {
-    "day": "",
-    "week": "Tính tuần",
-    "month": "Tháng",
-    "quarter": "Quý",
-    "year": "Nam",
+  Map<String, List<Map<String, String>>> timeMap = {
+    "day": [],
+    "week": [],
+    "month": [],
+    "quarter": [],
+    "year": [],
     "all": [
       {
         "value": "all",
@@ -35,19 +36,7 @@ class TransactionBookController extends GetxController
   @override
   void onInit() async {
     super.onInit();
-    listTab.value = [
-      "05/2024",
-      "06/2024",
-      "07/2024",
-      "08/2024",
-      "09/2024",
-      "10/2024",
-      "11/2024",
-      "Tháng trước",
-      "Tháng này",
-      "Tương lai",
-    ];
-    // listTab = ["Tất cả"];
+    listTab.value = DateTimeUtils.getInstance().getListTime(type: 'month');
     initTabIndex = listTab.length > 2 ? listTab.length - 2 : 0;
     tabController = TabController(
       length: listTab.length,
