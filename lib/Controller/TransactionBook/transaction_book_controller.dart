@@ -7,36 +7,18 @@ class TransactionBookController extends GetxController
   late TabController tabController;
   RxBool isThisTime = true.obs;
   RxBool isPrevious = true.obs;
+  DateTimeUtils dateTimeUtils = DateTimeUtils.getInstance();
   // [By Group, By transactions]
   RxString typeTransaction = "all".obs;
   // [day, week, month, quarter, year, all, custom]
   RxString typeTime = "month".obs;
   RxList listTab = [].obs;
   int initTabIndex = 0;
-  Map<String, List<Map<String, String>>> timeMap = {
-    "day": [],
-    "week": [],
-    "month": [],
-    "quarter": [],
-    "year": [],
-    "all": [
-      {
-        "value": "all",
-        "title": "Tất cả",
-      },
-    ],
-    "customize": [
-      {
-        "value": "customize",
-        "title": "Tùy chỉnh",
-      },
-    ]
-  };
 
   @override
   void onInit() async {
     super.onInit();
-    listTab.value = DateTimeUtils.getInstance().getListTime(type: 'month');
+    listTab.value = dateTimeUtils.getListTime(type: "month");
     initTabIndex = listTab.length > 2 ? listTab.length - 2 : 0;
     tabController = TabController(
       length: listTab.length,
@@ -47,6 +29,7 @@ class TransactionBookController extends GetxController
       isThisTime.value = tabController.index == initTabIndex;
       isPrevious.value = tabController.index > initTabIndex;
     });
+    // await Utils.getStringValueWithKey("TransactionBook-typeTime");
     backToThisTime();
   }
 
