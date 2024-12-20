@@ -23,14 +23,41 @@ class Dashboard extends StatelessWidget {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: GestureDetector(
         onLongPress: () {
-          print('on long press');
+          showModalBottomSheet<void>(
+            context: context,
+            builder: (BuildContext context) {
+              return Container(
+                padding: const EdgeInsets.only(bottom: 30, top: 10),
+                width: double.infinity,
+                color: AppColor.main,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    bottomSheetItem(
+                      icon: "assets/icons/ultils-bill.svg",
+                      title: "Thêm hóa đơn",
+                    ),
+                    bottomSheetItem(
+                      icon: "assets/icons/ultils-periodic.svg",
+                      title: "Thêm giao dịch định kì",
+                    ),
+                    bottomSheetItem(
+                      icon: "assets/icons/ultils-add.svg",
+                      title: "Thêm giao dịch trong tương lai",
+                    ),
+                  ],
+                ),
+              );
+            },
+          ).then((value) {});
         },
         child: FloatingActionButton(
           backgroundColor: AppColor.fourthMain,
           elevation: 0,
           shape: const CircleBorder(),
           onPressed: () {
-            print('on press');
+            // Go to add new transaction
           },
           child: const Icon(
             Icons.add,
@@ -207,6 +234,52 @@ class Dashboard extends StatelessWidget {
                   ),
                 ),
               ]),
+        ),
+      ),
+    );
+  }
+
+  GestureDetector bottomSheetItem({
+    required String icon,
+    required String title,
+    void Function()? onTap,
+  }) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        decoration: const BoxDecoration(
+          color: AppColor.main,
+          border: Border(
+            bottom: BorderSide(
+              color: AppColor.subMain,
+              width: 1,
+            ),
+          ),
+        ),
+        child: Row(
+          children: [
+            SvgPicture.asset(
+              icon,
+              height: 25,
+              width: 25,
+              colorFilter: const ColorFilter.mode(
+                AppColor.grey,
+                BlendMode.srcIn,
+              ),
+            ),
+            const SizedBox(width: 25),
+            Expanded(
+              child: Text(
+                title,
+                style: TextStyle(
+                  fontSize: DeviceHelper.getFontSize(14),
+                  color: AppColor.text1,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
