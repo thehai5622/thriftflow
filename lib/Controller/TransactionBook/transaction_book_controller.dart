@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:thriftflow/Utils/datetime_utils.dart';
 
+// Vẫn chưa ổn phẩn lưu lại Gọi và lấy dữ liệu ra đối với TabView
+// Đang tính tới phương án load data trong Splash Screen đưa vào Global value
+// Sau đó mới xử lý dữ liệu ở đây.
+
 class TransactionBookController extends GetxController
     with GetSingleTickerProviderStateMixin {
   late TabController tabController;

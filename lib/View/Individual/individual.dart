@@ -69,15 +69,13 @@ class Individual extends StatelessWidget {
               },
             ).marginSymmetric(vertical: 20),
             utilitiesItem(
-              icon: "assets/icons/ultils-wallet.svg",
-              title: "Ví của tôi",
-              onTap: () {
-                Get.toNamed(Routes.myWallet);
-              }
-            ),
+                icon: "assets/icons/ultils-wallet.svg",
+                title: "Ví của tôi",
+                onTap: () => Get.toNamed(Routes.myWallet)),
             utilitiesItem(
               icon: "assets/icons/ultils-group.svg",
               title: "Nhóm",
+              onTap: () => Get.toNamed(Routes.group),
             ),
             utilitiesItem(
               icon: "assets/icons/ultils-event.svg",
