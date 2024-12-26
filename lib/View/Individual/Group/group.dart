@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:thriftflow/Controller/Individual/Group/group_controller.dart';
 import 'package:thriftflow/Global/app_color.dart';
+import 'package:thriftflow/Global/app_group.dart';
 import 'package:thriftflow/Route/app_page.dart';
 import 'package:thriftflow/Service/device_helper.dart';
 
@@ -110,10 +111,10 @@ class Group extends StatelessWidget {
             Expanded(
               child: TabBarView(
                 controller: controller.tabController,
-                children: const [
-                  Center(child: Text("Khoản chi")),
-                  Center(child: Text("Khoản thu")),
-                  Center(child: Text("Vay/Nợ")),
+                children: [
+                  _expenses(),
+                  _revenue(),
+                  _debt(),
                 ],
               ),
             ),
@@ -154,6 +155,114 @@ class Group extends StatelessWidget {
                   ),
                 ),
               ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  SingleChildScrollView _expenses() {
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          _createNewGroup(type: AppGroup.EXPENSES),
+          _requestSupport(),
+        ],
+      ),
+    );
+  }
+
+  SingleChildScrollView _revenue() {
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          _createNewGroup(type: AppGroup.REVENUE),
+          _requestSupport(),
+        ],
+      ),
+    );
+  }
+
+  SingleChildScrollView _debt() {
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          _requestSupport(),
+        ],
+      ),
+    );
+  }
+
+  GestureDetector _createNewGroup(
+      {required String type, void Function()? onTap}) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        color: AppColor.main,
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+        margin: const EdgeInsets.only(bottom: 10),
+        child: Row(
+          children: [
+            Container(
+              padding: const EdgeInsets.all(2),
+              decoration: const BoxDecoration(
+                shape: BoxShape.circle,
+                color: AppColor.fourthMain,
+              ),
+              child: const Icon(
+                Icons.add,
+                size: 16,
+                color: AppColor.white,
+              ),
+            ),
+            const SizedBox(width: 20),
+            Expanded(
+                child: Text("NHÓM MỚI",
+                    style: TextStyle(
+                      fontSize: DeviceHelper.getFontSize(15),
+                      color: AppColor.fourthMain,
+                      fontWeight: FontWeight.w500,
+                    ))),
+          ],
+        ),
+      ),
+    );
+  }
+
+  GestureDetector _requestSupport() {
+    return GestureDetector(
+      onTap: () => Get.toNamed(Routes.requestSupport),
+      child: Container(
+        color: AppColor.main,
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+        margin: const EdgeInsets.only(bottom: 20),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text("Bạn có thắc mắc",
+                style: TextStyle(
+                  fontSize: DeviceHelper.getFontSize(15),
+                  color: AppColor.fourthMain,
+                  fontWeight: FontWeight.w400,
+                )),
+            const SizedBox(width: 5),
+            Container(
+              padding: const EdgeInsets.all(5),
+              decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: AppColor.white,
+                  border: Border.all(
+                    width: 1,
+                    color: AppColor.fourthMain,
+                  )),
+              child: Text("?",
+                  style: TextStyle(
+                    fontSize: DeviceHelper.getFontSize(12),
+                    color: AppColor.fourthMain,
+                    fontWeight: FontWeight.w900,
+                  )),
             ),
           ],
         ),
