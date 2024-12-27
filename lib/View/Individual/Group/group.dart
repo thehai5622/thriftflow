@@ -178,6 +178,10 @@ class Group extends StatelessWidget {
       child: Column(
         children: [
           _createNewGroup(type: AppGroup.REVENUE),
+          _groupItem(
+            icon: "assets/icons/group-transfer.svg",
+            title: "Tiền chuyển đến",
+          ),
           _requestSupport(),
         ],
       ),
@@ -188,8 +192,67 @@ class Group extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
+          _groupItem(
+            icon: "assets/icons/group-loan.svg",
+            title: "Cho vay",
+          ),
+          _groupItem(
+            icon: "assets/icons/group-borrow.svg",
+            title: "Đi vay",
+          ),
+          _groupItem(
+            icon: "assets/icons/group-debt-collection.svg",
+            title: "Thu nợ",
+          ),
+          _groupItem(
+            icon: "assets/icons/group-debt-repayment.svg",
+            title: "Trả nợ",
+          ),
           _requestSupport(),
         ],
+      ),
+    );
+  }
+
+  GestureDetector _groupItem({
+    required String icon,
+    required String title,
+    void Function()? onTap,
+  }) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        color: AppColor.main,
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+        margin: const EdgeInsets.only(bottom: 10),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SvgPicture.asset(
+                  icon,
+                  height: 35,
+                  width: 35,
+                ),
+                const SizedBox(width: 20),
+                Text(title,
+                    style: TextStyle(
+                      fontSize: DeviceHelper.getFontSize(14),
+                      color: AppColor.text1,
+                      fontWeight: FontWeight.w500,
+                    )),
+              ],
+            ),
+            const Icon(
+              Icons.arrow_forward_ios_rounded,
+              size: 17,
+              color: AppColor.grey,
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -200,7 +263,7 @@ class Group extends StatelessWidget {
       onTap: onTap,
       child: Container(
         color: AppColor.main,
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
         margin: const EdgeInsets.only(bottom: 10),
         child: Row(
           children: [
@@ -235,7 +298,7 @@ class Group extends StatelessWidget {
       onTap: () => Get.toNamed(Routes.requestSupport),
       child: Container(
         color: AppColor.main,
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
         margin: const EdgeInsets.only(bottom: 20),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
