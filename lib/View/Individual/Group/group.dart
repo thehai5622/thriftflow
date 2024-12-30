@@ -177,7 +177,7 @@ class Group extends StatelessWidget {
           ),
           _groupItem(
             icon: "assets/icons/group-shield.svg",
-            title: "Bảo vệ",
+            title: "Bảo hiểm",
           ),
           _groupItem(
             icon: "assets/icons/group-other.svg",
@@ -198,6 +198,10 @@ class Group extends StatelessWidget {
           _groupItem(
             icon: "assets/icons/group-game.svg",
             title: "Giải trí",
+          ),
+          _groupItem(
+            icon: "assets/icons/group-education.svg",
+            title: "Giáo dục",
           ),
           _groupItem(
             icon: "assets/icons/group-shopping.svg",
