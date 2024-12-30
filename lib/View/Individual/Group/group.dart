@@ -167,6 +167,58 @@ class Group extends StatelessWidget {
       child: Column(
         children: [
           _createNewGroup(type: AppGroup.EXPENSES),
+          _groupItem(
+            icon: "assets/icons/group-eat.svg",
+            title: "Ăn",
+          ),
+          _groupItem(
+            icon: "assets/icons/group-drink.svg",
+            title: "Uống",
+          ),
+          _groupItem(
+            icon: "assets/icons/group-shield.svg",
+            title: "Bảo vệ",
+          ),
+          _groupItem(
+            icon: "assets/icons/group-other.svg",
+            title: "Khác",
+          ),
+          _groupItem(
+            icon: "assets/icons/group-invest.svg",
+            title: "Đầu tư",
+          ),
+          _groupItem(
+            icon: "assets/icons/group-car.svg",
+            title: "Di chuyển",
+          ),
+          _groupItem(
+            icon: "assets/icons/group-home.svg",
+            title: "Gia đình",
+          ),
+          _groupItem(
+            icon: "assets/icons/group-game.svg",
+            title: "Giải trí",
+          ),
+          _groupItem(
+            icon: "assets/icons/group-shopping.svg",
+            title: "Mua sắm",
+          ),
+          _groupItem(
+            icon: "assets/icons/group-gift.svg",
+            title: "Quà tặng & Quyên góp",
+          ),
+          _groupItem(
+            icon: "assets/icons/group-health.svg",
+            title: "Sức khỏe",
+          ),
+          _groupItem(
+            icon: "assets/icons/group-transfer.svg",
+            title: "Tiền chuyển đi",
+          ),
+          _groupItem(
+            icon: "assets/icons/group-interest-payment.svg",
+            title: "Trả lãi",
+          ),
           _requestSupport(),
         ],
       ),
@@ -178,6 +230,18 @@ class Group extends StatelessWidget {
       child: Column(
         children: [
           _createNewGroup(type: AppGroup.REVENUE),
+          _groupItem(
+            icon: "assets/icons/group-wage.svg",
+            title: "Lương",
+          ),
+          _groupItem(
+            icon: "assets/icons/group-make-profit.svg",
+            title: "Thu lãi",
+          ),
+          _groupItem(
+            icon: "assets/icons/group-achievements.svg",
+            title: "Thu nhập khác",
+          ),
           _groupItem(
             icon: "assets/icons/group-transfer.svg",
             title: "Tiền chuyển đến",
