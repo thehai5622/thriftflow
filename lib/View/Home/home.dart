@@ -875,10 +875,31 @@ class Home extends StatelessWidget {
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    SvgPicture.asset(
-                      icon,
-                      height: 40,
-                      width: 40,
+                    Stack(
+                      children: [
+                        SvgPicture.asset(
+                          icon,
+                          height: 40,
+                          width: 40,
+                        ),
+                        Positioned(
+                          bottom: 0,
+                          right: 0,
+                          child: Container(
+                            padding: const EdgeInsets.all(2),
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: AppColor.main,
+                            ),
+                            child: SvgPicture.asset(
+                              WalletUtils.getIconWalletByType(
+                                  WalletUtils.WALLET_ALL),
+                              height: 15,
+                              width: 15,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                     const SizedBox(width: 20),
                     Text(title,
