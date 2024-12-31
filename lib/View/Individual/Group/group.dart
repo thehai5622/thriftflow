@@ -222,6 +222,16 @@ class Group extends StatelessWidget {
           _groupItem(
             icon: "assets/icons/group-game.svg",
             title: "Giải trí",
+            children: [
+              _groupItem(
+                icon: "assets/icons/group-bank-card.svg",
+                title: "Game online",
+              ),
+              _groupItem(
+                icon: "assets/icons/group-game.svg",
+                title: "Đi chơi",
+              ),
+            ],
           ).marginOnly(bottom: 10),
           _groupItem(
             icon: "assets/icons/group-education.svg",
@@ -268,6 +278,20 @@ class Group extends StatelessWidget {
           _groupItem(
             icon: "assets/icons/group-shopping.svg",
             title: "Mua sắm",
+            children: [
+              _groupItem(
+                icon: "assets/icons/group-smartphone.svg",
+                title: "Đồ dùng cá nhân",
+              ),
+              _groupItem(
+                icon: "assets/icons/group-sofa.svg",
+                title: "Đồ gia dụng",
+              ),
+              _groupItem(
+                icon: "assets/icons/group-beautiful.svg",
+                title: "Làm đẹp",
+              ),
+            ],
           ).marginOnly(bottom: 10),
           _groupItem(
             icon: "assets/icons/group-gift.svg",
@@ -276,6 +300,16 @@ class Group extends StatelessWidget {
           _groupItem(
             icon: "assets/icons/group-health.svg",
             title: "Sức khỏe",
+            children: [
+              _groupItem(
+                icon: "assets/icons/group-stethoscope.svg",
+                title: "Khám sức khỏe",
+              ),
+              _groupItem(
+                icon: "assets/icons/group-volleyball.svg",
+                title: "Thể dục thể thao",
+              ),
+            ],
           ).marginOnly(bottom: 10),
           _groupItem(
             icon: "assets/icons/group-transfer.svg",
