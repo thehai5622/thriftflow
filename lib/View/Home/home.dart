@@ -692,26 +692,51 @@ class Home extends StatelessWidget {
                     ),
                   ),
                 ).marginSymmetric(vertical: 12),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                    margin: const EdgeInsets.only(bottom: 12),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                      color: AppColor.fourthMain.withOpacity(0.3),
-                    ),
-                    child: Text(
-                      "Ví dụ",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: DeviceHelper.getFontSize(13),
-                        color: AppColor.white,
-                        fontWeight: FontWeight.w400,
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 8, vertical: 4),
+                        margin: const EdgeInsets.only(bottom: 12),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          color: AppColor.fourthMain.withOpacity(0.3),
+                        ),
+                        child: Text(
+                          "Ví dụ",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: DeviceHelper.getFontSize(13),
+                            color: AppColor.white,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
                       ),
                     ),
-                  ),
+                    _groupItem(
+                      icon: "assets/icons/group-invest.svg",
+                      title: "Đầu tư",
+                      isExample: true,
+                      proportion: "50",
+                    ),
+                    _groupItem(
+                      icon: "assets/icons/group-home-bill.svg",
+                      title: "Thuê nhà",
+                      isExample: true,
+                      proportion: "30",
+                    ),
+                    _groupItem(
+                      icon: "assets/icons/group-eat.svg",
+                      title: "Ăn",
+                      isExample: true,
+                      proportion: "20",
+                    ),
+                    const SizedBox(height: 8),
+                  ],
                 ),
               ]),
             ).marginSymmetric(horizontal: 20),
@@ -824,6 +849,94 @@ class Home extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Opacity _groupItem({
+    required String icon,
+    required String title,
+    required String proportion,
+    bool isExample = false,
+    List<Widget> children = const [],
+  }) {
+    return Opacity(
+      opacity: isExample ? 0.5 : 1,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+            padding: const EdgeInsets.symmetric(vertical: 8),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SvgPicture.asset(
+                      icon,
+                      height: 40,
+                      width: 40,
+                    ),
+                    const SizedBox(width: 20),
+                    Text(title,
+                        style: TextStyle(
+                          fontSize: DeviceHelper.getFontSize(14),
+                          color: AppColor.text1,
+                          fontWeight: FontWeight.w500,
+                        )),
+                  ],
+                ),
+                Text('$proportion%',
+                    style: TextStyle(
+                      fontSize: DeviceHelper.getFontSize(15),
+                      color: AppColor.fourthMain,
+                      fontWeight: FontWeight.w600,
+                    )),
+              ],
+            ),
+          ),
+          ListView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: children.length,
+            itemBuilder: (context, index) {
+              return Stack(
+                children: [
+                  Row(
+                    children: [
+                      const SizedBox(
+                        width: 20,
+                        height: 56,
+                      ),
+                      Expanded(child: children[index]),
+                    ],
+                  ),
+                  Positioned(
+                    top: 0,
+                    left: 20,
+                    child: Container(
+                      width: 1,
+                      height: children.length - 1 == index ? 28 : 56,
+                      color: AppColor.fourthMain,
+                    ),
+                  ),
+                  Positioned(
+                    top: 28,
+                    left: 20,
+                    child: Container(
+                      width: 17,
+                      height: 1,
+                      color: AppColor.fourthMain,
+                    ),
+                  ),
+                ],
+              );
+            },
+          )
+        ],
       ),
     );
   }
