@@ -788,8 +788,8 @@ class Home extends StatelessWidget {
               children: [
                 SvgPicture.asset(
                   WalletUtils.getIconWalletByType(type),
-                  height: 40,
-                  width: 40,
+                  height: 45,
+                  width: 45,
                 ).marginOnly(right: 12),
                 Text(
                   name,
