@@ -181,7 +181,7 @@ class Group extends StatelessWidget {
           ),
           _groupItem(
             icon: "assets/icons/group-other.svg",
-            title: "Khác",
+            title: "Chi phí khác",
           ),
           _groupItem(
             icon: "assets/icons/group-invest.svg",
@@ -202,6 +202,10 @@ class Group extends StatelessWidget {
           _groupItem(
             icon: "assets/icons/group-education.svg",
             title: "Giáo dục",
+          ),
+          _groupItem(
+            icon: "assets/icons/group-bill.svg",
+            title: "Hóa đơn",
           ),
           _groupItem(
             icon: "assets/icons/group-shopping.svg",
@@ -286,6 +290,7 @@ class Group extends StatelessWidget {
     required String icon,
     required String title,
     void Function()? onTap,
+    List<Widget> children = const [],
   }) {
     return GestureDetector(
       onTap: onTap,
