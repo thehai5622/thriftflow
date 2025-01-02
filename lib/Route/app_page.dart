@@ -4,6 +4,7 @@ import 'package:thriftflow/View/Home/Notification/notification.dart';
 import 'package:thriftflow/View/Home/home.dart';
 import 'package:thriftflow/View/Individual/AccountManagement/account_management.dart';
 import 'package:thriftflow/View/Individual/Bill/bill.dart';
+import 'package:thriftflow/View/Individual/DebtBook/debt_book.dart';
 import 'package:thriftflow/View/Individual/Event/event.dart';
 import 'package:thriftflow/View/Individual/Group/group.dart';
 import 'package:thriftflow/View/Individual/MyWallet/my_wallet.dart';
@@ -38,5 +39,6 @@ class AppPage {
     GetPage(name: Routes.event, page: () => Event()),
     GetPage(name: Routes.periodic, page: () => Periodic()),
     GetPage(name: Routes.bill, page: () => Bill()),
+    GetPage(name: Routes.debtBook, page: () => DebtBook()),
   ];
 }

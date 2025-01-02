@@ -95,6 +95,7 @@ class Individual extends StatelessWidget {
             utilitiesItem(
               icon: "assets/icons/ultils-debt-book.svg",
               title: "Sổ nợ",
+              onTap: () => Get.toNamed(Routes.debtBook),
             ),
             utilitiesItem(
               icon: "assets/icons/ultils-tool.svg",

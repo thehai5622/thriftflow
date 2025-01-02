@@ -18,6 +18,7 @@ abstract class Routes {
   static const event = _Paths.event;
   static const periodic = _Paths.periodic;
   static const bill = _Paths.bill;
+  static const debtBook = _Paths.debtBook;
 }
 
 abstract class _Paths {
@@ -38,4 +39,5 @@ abstract class _Paths {
   static const String event = '/event';
   static const String periodic = '/periodic';
   static const String bill = '/bill';
+  static const String debtBook = '/debt-book';
 }
