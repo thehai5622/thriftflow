@@ -518,8 +518,8 @@ class Group extends StatelessWidget {
             Text("Bạn có thắc mắc",
                 style: TextStyle(
                   fontSize: DeviceHelper.getFontSize(15),
-                  color: AppColor.fourthMain,
-                  fontWeight: FontWeight.w400,
+                  color: AppColor.thirdMain,
+                  fontWeight: FontWeight.w500,
                 )),
             const SizedBox(width: 5),
             Container(
@@ -529,12 +529,12 @@ class Group extends StatelessWidget {
                   color: AppColor.white,
                   border: Border.all(
                     width: 1,
-                    color: AppColor.fourthMain,
+                    color: AppColor.thirdMain,
                   )),
               child: Text("?",
                   style: TextStyle(
                     fontSize: DeviceHelper.getFontSize(12),
-                    color: AppColor.fourthMain,
+                    color: AppColor.thirdMain,
                     fontWeight: FontWeight.w900,
                   )),
             ),

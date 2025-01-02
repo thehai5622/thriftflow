@@ -15,6 +15,7 @@ abstract class Routes {
   static const walletOverview = _Paths.walletOverview;
   static const walletGuide = _Paths.walletGuide;
   static const group = _Paths.group;
+  static const event = _Paths.event;
 }
 
 abstract class _Paths {
@@ -32,4 +33,5 @@ abstract class _Paths {
   static const String walletOverview = '/wallet-overview';
   static const String walletGuide = '/wallet-guide';
   static const String group = '/group';
+  static const String event = '/event';
 }

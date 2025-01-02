@@ -3,6 +3,7 @@ import 'package:thriftflow/View/Budget/budget.dart';
 import 'package:thriftflow/View/Home/Notification/notification.dart';
 import 'package:thriftflow/View/Home/home.dart';
 import 'package:thriftflow/View/Individual/AccountManagement/account_management.dart';
+import 'package:thriftflow/View/Individual/Event/event.dart';
 import 'package:thriftflow/View/Individual/Group/group.dart';
 import 'package:thriftflow/View/Individual/MyWallet/my_wallet.dart';
 import 'package:thriftflow/View/Individual/MyWallet/wallet_guide.dart';
@@ -32,5 +33,6 @@ class AppPage {
     GetPage(name: Routes.walletOverview, page: () => WalletOverview()),
     GetPage(name: Routes.walletGuide, page: () => const WalletGuide()),
     GetPage(name: Routes.group, page: () => Group()),
+    GetPage(name: Routes.event, page: () => Event()),
   ];
 }
