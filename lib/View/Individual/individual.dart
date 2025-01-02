@@ -109,6 +109,7 @@ class Individual extends StatelessWidget {
             _utilitiesItem(
               icon: "assets/icons/ultils-question.svg",
               title: "Hỗ trợ",
+              onTap: () => Get.toNamed(Routes.help),
             ),
             _utilitiesItem(
               icon: "assets/icons/ultils-setting.svg",

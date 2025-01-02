@@ -7,6 +7,7 @@ import 'package:thriftflow/View/Individual/Bill/bill.dart';
 import 'package:thriftflow/View/Individual/DebtBook/debt_book.dart';
 import 'package:thriftflow/View/Individual/Event/event.dart';
 import 'package:thriftflow/View/Individual/Group/group.dart';
+import 'package:thriftflow/View/Individual/Help/help.dart';
 import 'package:thriftflow/View/Individual/MyWallet/my_wallet.dart';
 import 'package:thriftflow/View/Individual/MyWallet/wallet_guide.dart';
 import 'package:thriftflow/View/Individual/MyWallet/wallet_overview.dart';
@@ -42,5 +43,6 @@ class AppPage {
     GetPage(name: Routes.bill, page: () => Bill()),
     GetPage(name: Routes.debtBook, page: () => DebtBook()),
     GetPage(name: Routes.tool, page: () => Tool()),
+    GetPage(name: Routes.help, page: () => Help()),
   ];
 }

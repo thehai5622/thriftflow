@@ -20,6 +20,7 @@ abstract class Routes {
   static const bill = _Paths.bill;
   static const debtBook = _Paths.debtBook;
   static const tool = _Paths.tool;
+  static const help = _Paths.help;
 }
 
 abstract class _Paths {
@@ -42,4 +43,5 @@ abstract class _Paths {
   static const String bill = '/bill';
   static const String debtBook = '/debt-book';
   static const String tool = '/tool';
+  static const String help = '/help';
 }
