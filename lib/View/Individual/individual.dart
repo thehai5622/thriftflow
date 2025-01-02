@@ -68,52 +68,53 @@ class Individual extends StatelessWidget {
                 Get.toNamed(Routes.accountManagement);
               },
             ).marginSymmetric(vertical: 20),
-            utilitiesItem(
+            _utilitiesItem(
                 icon: "assets/icons/ultils-wallet.svg",
                 title: "Ví của tôi",
                 onTap: () => Get.toNamed(Routes.myWallet)),
-            utilitiesItem(
+            _utilitiesItem(
               icon: "assets/icons/ultils-group.svg",
               title: "Nhóm",
               onTap: () => Get.toNamed(Routes.group),
             ),
-            utilitiesItem(
+            _utilitiesItem(
               icon: "assets/icons/ultils-event.svg",
               title: "Sự kiện",
               onTap: () => Get.toNamed(Routes.event),
             ),
-            utilitiesItem(
+            _utilitiesItem(
               icon: "assets/icons/ultils-periodic.svg",
               title: "Giao dịch định kì",
               onTap: () => Get.toNamed(Routes.periodic),
             ),
-            utilitiesItem(
+            _utilitiesItem(
               icon: "assets/icons/ultils-bill.svg",
               title: "Hóa đơn",
               onTap: () => Get.toNamed(Routes.bill),
             ),
-            utilitiesItem(
+            _utilitiesItem(
               icon: "assets/icons/ultils-debt-book.svg",
               title: "Sổ nợ",
               onTap: () => Get.toNamed(Routes.debtBook),
             ),
-            utilitiesItem(
+            _utilitiesItem(
               icon: "assets/icons/ultils-tool.svg",
               title: "Công cụ",
+              onTap: () => Get.toNamed(Routes.tool),
             ),
-            utilitiesItem(
+            _utilitiesItem(
               icon: "assets/icons/ultils-travel.svg",
               title: "Chế độ du lịch",
             ),
-            utilitiesItem(
+            _utilitiesItem(
               icon: "assets/icons/ultils-question.svg",
               title: "Hỗ trợ",
             ),
-            utilitiesItem(
+            _utilitiesItem(
               icon: "assets/icons/ultils-setting.svg",
               title: "Cài đặt",
             ),
-            utilitiesItem(
+            _utilitiesItem(
               icon: "assets/icons/ultils-information.svg",
               title: "Giới thiệu",
             ),
@@ -132,7 +133,7 @@ class Individual extends StatelessWidget {
     );
   }
 
-  GestureDetector utilitiesItem({
+  GestureDetector _utilitiesItem({
     required String icon,
     required String title,
     void Function()? onTap,

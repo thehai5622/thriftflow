@@ -19,6 +19,7 @@ abstract class Routes {
   static const periodic = _Paths.periodic;
   static const bill = _Paths.bill;
   static const debtBook = _Paths.debtBook;
+  static const tool = _Paths.tool;
 }
 
 abstract class _Paths {
@@ -40,4 +41,5 @@ abstract class _Paths {
   static const String periodic = '/periodic';
   static const String bill = '/bill';
   static const String debtBook = '/debt-book';
+  static const String tool = '/tool';
 }
