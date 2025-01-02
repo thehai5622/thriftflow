@@ -16,6 +16,7 @@ abstract class Routes {
   static const walletGuide = _Paths.walletGuide;
   static const group = _Paths.group;
   static const event = _Paths.event;
+  static const periodic = _Paths.periodic;
 }
 
 abstract class _Paths {
@@ -34,4 +35,5 @@ abstract class _Paths {
   static const String walletGuide = '/wallet-guide';
   static const String group = '/group';
   static const String event = '/event';
+  static const String periodic = '/periodic';
 }

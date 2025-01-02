@@ -85,6 +85,7 @@ class Individual extends StatelessWidget {
             utilitiesItem(
               icon: "assets/icons/ultils-periodic.svg",
               title: "Giao dịch định kì",
+              onTap: () => Get.toNamed(Routes.periodic),
             ),
             utilitiesItem(
               icon: "assets/icons/ultils-bill.svg",

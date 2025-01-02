@@ -8,6 +8,7 @@ import 'package:thriftflow/View/Individual/Group/group.dart';
 import 'package:thriftflow/View/Individual/MyWallet/my_wallet.dart';
 import 'package:thriftflow/View/Individual/MyWallet/wallet_guide.dart';
 import 'package:thriftflow/View/Individual/MyWallet/wallet_overview.dart';
+import 'package:thriftflow/View/Individual/Periodic/periodic.dart';
 import 'package:thriftflow/View/Individual/RequestSupport/create_request.dart';
 import 'package:thriftflow/View/Individual/RequestSupport/request_support.dart';
 import 'package:thriftflow/View/TransactionBook/transaction_book.dart';
@@ -34,5 +35,6 @@ class AppPage {
     GetPage(name: Routes.walletGuide, page: () => const WalletGuide()),
     GetPage(name: Routes.group, page: () => Group()),
     GetPage(name: Routes.event, page: () => Event()),
+    GetPage(name: Routes.periodic, page: () => Periodic()),
   ];
 }
