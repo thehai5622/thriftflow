@@ -17,6 +17,7 @@ abstract class Routes {
   static const group = _Paths.group;
   static const event = _Paths.event;
   static const periodic = _Paths.periodic;
+  static const bill = _Paths.bill;
 }
 
 abstract class _Paths {
@@ -36,4 +37,5 @@ abstract class _Paths {
   static const String group = '/group';
   static const String event = '/event';
   static const String periodic = '/periodic';
+  static const String bill = '/bill';
 }
