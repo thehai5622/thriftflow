@@ -118,6 +118,7 @@ class Individual extends StatelessWidget {
             _utilitiesItem(
               icon: "assets/icons/ultils-information.svg",
               title: "Giới thiệu",
+              onTap: () => Get.toNamed(Routes.introduce),
             ),
             Text(
               "Phiên bản 1.0.0",
