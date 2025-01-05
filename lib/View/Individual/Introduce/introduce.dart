@@ -69,6 +69,7 @@ class Introduce extends StatelessWidget {
               color: AppColor.main,
               child: Column(
                 children: [
+                  const SizedBox(height: 12),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
