@@ -122,7 +122,8 @@ class TransactionBook extends StatelessWidget {
                           children: [
                             GestureDetector(
                               onTap: () {
-                                print(DateTimeUtils.getInstance().getListTime(type: 'year'));
+                                print(DateTimeUtils.getInstance()
+                                    .getListTime(type: 'year'));
                               },
                               child: SvgPicture.asset(
                                 "assets/icons/search.svg",
@@ -181,7 +182,50 @@ class TransactionBook extends StatelessWidget {
                   Container(
                     color: AppColor.subMain,
                     child: Center(
-                      child: Text("Screen $index"),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          SvgPicture.asset(
+                            "assets/icons/empty-box.svg",
+                            width: 150,
+                            height: 150,
+                          ),
+                          Text(
+                            "Không có giao dịch nào",
+                            style: TextStyle(
+                              fontSize: DeviceHelper.getFontSize(15),
+                              color: AppColor.text1,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                "Chạm nút",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: DeviceHelper.getFontSize(14),
+                                  color: AppColor.grey,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                              const Icon(Icons.add,
+                                  color: AppColor.text1, size: 20),
+                              Text(
+                                "để thêm giao diện",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: DeviceHelper.getFontSize(14),
+                                  color: AppColor.grey,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ],
+                          ).marginSymmetric(vertical: 10, horizontal: 20),
+                        ],
+                      ),
                     ),
                   )))
               .values
