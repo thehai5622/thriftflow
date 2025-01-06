@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       builder: (_, child) => GetMaterialApp(
         title: 'Thrift Flow',
         theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: AppColor.main),
+          colorScheme: ColorScheme.fromSeed(seedColor: AppColor.fourthMain),
           useMaterial3: true,
           appBarTheme: const AppBarTheme(
             titleSpacing: 20,
