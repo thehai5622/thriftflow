@@ -64,9 +64,7 @@ class Individual extends StatelessWidget {
               acronym: "L",
               name: "Luonghai5622",
               email: "luonghai5622@gmail.com",
-              onTap: () {
-                Get.toNamed(Routes.accountManagement);
-              },
+              onTap: () => Get.toNamed(Routes.accountManagement),
             ).marginSymmetric(vertical: 20),
             _utilitiesItem(
                 icon: "assets/icons/ultils-wallet.svg",
@@ -104,7 +102,8 @@ class Individual extends StatelessWidget {
             ),
             _utilitiesItem(
               icon: "assets/icons/ultils-travel.svg",
-              title: "Chế độ du lịch",
+              title: "Chế độ sự kiện",
+              onTap: () => _showDialog(context),
             ),
             _utilitiesItem(
               icon: "assets/icons/ultils-question.svg",
@@ -114,6 +113,7 @@ class Individual extends StatelessWidget {
             _utilitiesItem(
               icon: "assets/icons/ultils-setting.svg",
               title: "Cài đặt",
+              onTap: () => Get.toNamed(Routes.setting),
             ),
             _utilitiesItem(
               icon: "assets/icons/ultils-information.svg",
@@ -187,6 +187,81 @@ class Individual extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  _showDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          backgroundColor: AppColor.main,
+          contentPadding: const EdgeInsets.all(20),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Chế độ sự kiện",
+                style: TextStyle(
+                  fontSize: DeviceHelper.getFontSize(20),
+                  color: AppColor.text1,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              const SizedBox(height: 10),
+              Text(
+                "Trong chế độ sự kiện, bạn có thể chọn một sự kiện đang xảy ra làm sự kiện mặc định khi tạo mới giao dịch.",
+                style: TextStyle(
+                  fontSize: DeviceHelper.getFontSize(14),
+                  color: AppColor.grey,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+              const SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    "Chọn sự kiện",
+                    style: TextStyle(
+                      fontSize: DeviceHelper.getFontSize(18),
+                      color: AppColor.text1,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                  IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.add,
+                      size: 25,
+                    ),
+                  )
+                ],
+              ),
+              const SizedBox(height: 20),
+              Align(
+                alignment: Alignment.centerRight,
+                child: GestureDetector(
+                  onTap: () {
+                    Get.back();
+                  },
+                  child: Text(
+                    "ĐÓNG",
+                    style: TextStyle(
+                      fontSize: DeviceHelper.getFontSize(15),
+                      color: AppColor.thirdMain,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 }

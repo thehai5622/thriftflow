@@ -22,6 +22,7 @@ abstract class Routes {
   static const tool = _Paths.tool;
   static const help = _Paths.help;
   static const introduce = _Paths.introduce;
+  static const setting = _Paths.setting;
 }
 
 abstract class _Paths {
@@ -46,4 +47,5 @@ abstract class _Paths {
   static const String tool = '/tool';
   static const String help = '/help';
   static const String introduce = '/introduce';
+  static const String setting = '/setting';
 }
