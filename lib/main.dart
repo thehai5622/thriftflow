@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:thriftflow/Route/app_page.dart';
@@ -7,11 +8,21 @@ import 'package:thriftflow/Route/app_page.dart';
 import 'Global/app_color.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+
+  final Iterable<LocalizationsDelegate<dynamic>> localizationsDelegates = [
+    GlobalMaterialLocalizations.delegate,
+    GlobalWidgetsLocalizations.delegate,
+    GlobalCupertinoLocalizations.delegate,
+  ];
+  final Iterable<Locale> supportedLocales = const [
+    Locale('en', 'US'),
+    Locale('vi', 'VN'),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +35,8 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (_, child) => GetMaterialApp(
+        localizationsDelegates: localizationsDelegates,
+        supportedLocales: supportedLocales,
         title: 'Thrift Flow',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: AppColor.fourthMain),

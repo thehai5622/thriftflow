@@ -50,8 +50,9 @@ class Utils {
       Widget? icon,
       bool isDismissible = true,
       Duration duration = const Duration(seconds: 2),
-      Duration animationDuration = const Duration(seconds: 1),
-      Color? backgroundColor = Colors.black,
+      Duration animationDuration = const Duration(milliseconds: 300),
+      Color backgroundColor = Colors.black,
+      double opacityBackground = 0.8,
       SnackPosition? direction = SnackPosition.TOP,
       Curve? animation}) {
     Get.snackbar(
@@ -61,9 +62,28 @@ class Utils {
       duration: duration,
       animationDuration: animationDuration,
       icon: icon,
-      backgroundColor: backgroundColor!.withOpacity(0.3),
+      backgroundColor: backgroundColor.withOpacity(opacityBackground),
       snackPosition: direction,
       forwardAnimationCurve: animation,
+      isDismissible: isDismissible,
     );
+  }
+
+  static showDateTimePicker(
+      {required BuildContext context,
+      DateTime? firstDate,
+      DateTime? lastDate,
+      Locale locale = const Locale('vi', 'VN'),
+      required Function(DateTime?) onValue,
+      Function? onError}) {
+    firstDate ??= DateTime(2000);
+    lastDate ??= DateTime.now();
+
+    showDatePicker(
+      context: context,
+      locale: locale,
+      firstDate: firstDate,
+      lastDate: lastDate,
+    ).then(onValue, onError: onError);
   }
 }
