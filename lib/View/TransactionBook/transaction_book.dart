@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:thriftflow/Component/popup_menu.dart';
 import 'package:thriftflow/Controller/TransactionBook/transaction_book_controller.dart';
 import 'package:thriftflow/Global/app_color.dart';
 import 'package:thriftflow/Route/app_page.dart';
@@ -136,10 +137,84 @@ class TransactionBook extends StatelessWidget {
                               ),
                             ),
                             const SizedBox(width: 8),
-                            const Icon(
-                              Icons.more_vert,
-                              size: 25,
-                              color: AppColor.text1,
+                            MyPopupMenu(
+                              itemMenu: [
+                                PopupMenuItem(
+                                  child: Text(
+                                    "Khoảng thời gian",
+                                    style: TextStyle(
+                                      fontSize: DeviceHelper.getFontSize(14),
+                                      color: AppColor.text1,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ),
+                                PopupMenuItem(
+                                  child: Text(
+                                    "Xem theo nhóm",
+                                    style: TextStyle(
+                                      fontSize: DeviceHelper.getFontSize(14),
+                                      color: AppColor.text1,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ),
+                                PopupMenuItem(
+                                  child: Text(
+                                    "Điều chỉnh số dư",
+                                    style: TextStyle(
+                                      fontSize: DeviceHelper.getFontSize(14),
+                                      color: AppColor.text1,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ),
+                                PopupMenuItem(
+                                  child: Text(
+                                    "chuyển tiền đến ví khác",
+                                    style: TextStyle(
+                                      fontSize: DeviceHelper.getFontSize(14),
+                                      color: AppColor.text1,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ),
+                                PopupMenuItem(
+                                  child: Text(
+                                    "Đồng bộ hóa",
+                                    style: TextStyle(
+                                      fontSize: DeviceHelper.getFontSize(14),
+                                      color: AppColor.text1,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ),
+                                PopupMenuItem(
+                                  child: Text(
+                                    "Sửa ví",
+                                    style: TextStyle(
+                                      fontSize: DeviceHelper.getFontSize(14),
+                                      color: AppColor.text1,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ),
+                                PopupMenuItem(
+                                  child: Text(
+                                    "Chia sẻ ví",
+                                    style: TextStyle(
+                                      fontSize: DeviceHelper.getFontSize(14),
+                                      color: AppColor.text1,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                              child: const Icon(
+                                Icons.more_vert,
+                                size: 25,
+                                color: AppColor.text1,
+                              ),
                             ),
                           ],
                         ),
