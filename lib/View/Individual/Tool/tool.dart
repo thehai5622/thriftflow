@@ -27,7 +27,7 @@ class Tool extends StatelessWidget {
         ),
       ),
       body: Container(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           color: AppColor.subMain,
         ),
         child: ListView(

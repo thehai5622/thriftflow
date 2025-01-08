@@ -4,10 +4,10 @@ class AppColor {
   static const transparent = Color(0x00000000);
 
   // App theme
-  static const main = Color(0xFFFFFFFF);
-  static const subMain = Color(0xFFF5F5F7);
-  static const thirdMain = Color(0xFF9EDF9C);
-  static const fourthMain = Color(0xFF526E48);
+  static Color main = const Color(0xFFFFFFFF);
+  static Color subMain = const Color(0xFFF5F5F7);
+  static Color thirdMain = const Color(0xFF9EDF9C);
+  static Color fourthMain = const Color(0xFF526E48);
   // static const main = Color(0xFFC2FFC7);
   // static const subMain = Color(0xFF9EDF9C);
   // static const thirdMain = Color(0xFF62825D);

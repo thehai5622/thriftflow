@@ -38,7 +38,7 @@ class WalletOverview extends StatelessWidget {
                 "assets/icons/info-square.svg",
                 height: 25,
                 width: 25,
-                colorFilter: const ColorFilter.mode(
+                colorFilter: ColorFilter.mode(
                   AppColor.fourthMain,
                   BlendMode.srcIn,
                 ),

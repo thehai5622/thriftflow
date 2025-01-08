@@ -77,7 +77,7 @@ class Introduce extends StatelessWidget {
                         child: Container(
                           padding: const EdgeInsets.symmetric(
                               vertical: 12, horizontal: 16),
-                          decoration: const BoxDecoration(
+                          decoration: BoxDecoration(
                               border: Border(
                                   right: BorderSide(
                                       color: AppColor.subMain, width: 1))),
@@ -107,7 +107,7 @@ class Introduce extends StatelessWidget {
                         child: Container(
                           padding: const EdgeInsets.symmetric(
                               vertical: 12, horizontal: 16),
-                          decoration: const BoxDecoration(
+                          decoration: BoxDecoration(
                               border: Border(
                                   left: BorderSide(
                                       color: AppColor.subMain, width: 1))),

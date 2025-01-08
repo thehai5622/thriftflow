@@ -50,7 +50,7 @@ class RequestSupport extends StatelessWidget {
         ),
         body: Container(
           width: double.infinity,
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             color: AppColor.main,
           ),
           child: Obx(
@@ -59,7 +59,7 @@ class RequestSupport extends StatelessWidget {
                     itemCount: controller.requestList.length,
                     itemBuilder: (context, index) => Container(
                       padding: const EdgeInsets.all(12),
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
                           border: Border(
                               bottom: BorderSide(
                                   color: AppColor.subMain, width: 1))),

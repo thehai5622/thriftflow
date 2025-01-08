@@ -115,7 +115,7 @@ class Home extends StatelessWidget {
         ],
       ),
       body: Container(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           color: AppColor.subMain,
         ),
         child: ListView(
@@ -319,7 +319,7 @@ class Home extends StatelessWidget {
                                     Container(
                                       height: 13,
                                       width: 13,
-                                      decoration: const BoxDecoration(
+                                      decoration: BoxDecoration(
                                         color: AppColor.fourthMain,
                                         shape: BoxShape.circle,
                                       ),
@@ -337,7 +337,7 @@ class Home extends StatelessWidget {
                                     Container(
                                       height: 13,
                                       width: 13,
-                                      decoration: const BoxDecoration(
+                                      decoration: BoxDecoration(
                                         color: AppColor.subMain,
                                         shape: BoxShape.circle,
                                       ),
@@ -493,7 +493,7 @@ class Home extends StatelessWidget {
                                     Container(
                                         height: 14,
                                         width: 14,
-                                        decoration: const BoxDecoration(
+                                        decoration: BoxDecoration(
                                           shape: BoxShape.circle,
                                           color: AppColor.subMain,
                                         ),
@@ -534,7 +534,7 @@ class Home extends StatelessWidget {
                           onTap: () {
                             controller.changeReportTabIndex();
                           },
-                          child: const Icon(Icons.arrow_back_ios,
+                          child: Icon(Icons.arrow_back_ios,
                                   size: 20, color: AppColor.fourthMain)
                               .marginOnly(left: 20),
                         ),
@@ -554,7 +554,7 @@ class Home extends StatelessWidget {
                           onTap: () {
                             controller.changeReportTabIndex();
                           },
-                          child: const Icon(Icons.arrow_forward_ios,
+                          child: Icon(Icons.arrow_forward_ios,
                                   size: 20, color: AppColor.fourthMain)
                               .marginOnly(right: 20),
                         ),
@@ -796,7 +796,7 @@ class Home extends StatelessWidget {
       onTap: onTap,
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           border: Border(
             top: BorderSide(
               color: AppColor.subMain,
@@ -887,7 +887,7 @@ class Home extends StatelessWidget {
                           right: 0,
                           child: Container(
                             padding: const EdgeInsets.all(2),
-                            decoration: const BoxDecoration(
+                            decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               color: AppColor.main,
                             ),

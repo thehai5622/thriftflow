@@ -204,7 +204,7 @@ class WalletGuide extends StatelessWidget {
             height: 35,
             width: 35,
             padding: const EdgeInsets.all(5),
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               shape: BoxShape.circle,
               color: AppColor.subMain,
             ),

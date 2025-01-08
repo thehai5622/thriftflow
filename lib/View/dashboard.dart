@@ -113,7 +113,7 @@ class Dashboard extends StatelessWidget {
                             SvgPicture.asset(
                               'assets/icons/home_hashtag.svg',
                               colorFilter: controller.currentIndex.value == 0
-                                  ? const ColorFilter.mode(
+                                  ? ColorFilter.mode(
                                       AppColor.fourthMain, BlendMode.srcIn)
                                   : null,
                             ),
@@ -149,7 +149,7 @@ class Dashboard extends StatelessWidget {
                               height: 20,
                               width: 20,
                               colorFilter: controller.currentIndex.value == 1
-                                  ? const ColorFilter.mode(
+                                  ? ColorFilter.mode(
                                       AppColor.fourthMain, BlendMode.srcIn)
                                   : null,
                             ),
@@ -188,7 +188,7 @@ class Dashboard extends StatelessWidget {
                               height: 20,
                               width: 20,
                               colorFilter: controller.currentIndex.value == 2
-                                  ? const ColorFilter.mode(
+                                  ? ColorFilter.mode(
                                       AppColor.fourthMain, BlendMode.srcIn)
                                   : null,
                             ),
@@ -222,7 +222,7 @@ class Dashboard extends StatelessWidget {
                             SvgPicture.asset(
                               'assets/icons/user_octagon.svg',
                               colorFilter: controller.currentIndex.value == 3
-                                  ? const ColorFilter.mode(
+                                  ? ColorFilter.mode(
                                       AppColor.fourthMain, BlendMode.srcIn)
                                   : null,
                             ),
@@ -260,7 +260,7 @@ class Dashboard extends StatelessWidget {
       onTap: onTap,
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           color: AppColor.main,
           border: Border(
             bottom: BorderSide(

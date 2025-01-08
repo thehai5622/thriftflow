@@ -55,7 +55,7 @@ class Individual extends StatelessWidget {
         ],
       ),
       body: Container(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           color: AppColor.subMain,
         ),
         child: ListView(
@@ -144,7 +144,7 @@ class Individual extends StatelessWidget {
       onTap: onTap,
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           color: AppColor.main,
           border: Border(
             bottom: BorderSide(

@@ -124,7 +124,7 @@ class Group extends StatelessWidget {
               },
               child: Container(
                 padding: const EdgeInsets.all(16),
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   color: AppColor.main,
                 ),
                 child: Obx(
@@ -435,7 +435,7 @@ class Group extends StatelessWidget {
                     Container(
                       width: 20,
                       height: 56,
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
                         color: AppColor.main,
                       ),
                     ),
@@ -480,7 +480,7 @@ class Group extends StatelessWidget {
           children: [
             Container(
               padding: const EdgeInsets.all(2),
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: AppColor.fourthMain,
               ),

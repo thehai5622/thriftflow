@@ -25,7 +25,7 @@ class PersonalInfo extends StatelessWidget {
         padding: isExpendPadding
             ? const EdgeInsets.symmetric(horizontal: 20, vertical: 40)
             : const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           color: AppColor.main,
         ),
         child: Column(
@@ -35,7 +35,7 @@ class PersonalInfo extends StatelessWidget {
             Container(
               height: 70,
               width: 70,
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 color: AppColor.thirdMain,
                 shape: BoxShape.circle,
               ),
