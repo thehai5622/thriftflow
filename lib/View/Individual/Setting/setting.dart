@@ -32,6 +32,9 @@ class Setting extends StatelessWidget {
           children: [
             _titleSetting(title: "Hiển thị"),
             _settingItem(
+              title: "Giao diện",
+            ),
+            _settingItem(
               title: "Kiểu hiển thị số tiền",
             ),
             _settingItem(
