@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:thriftflow/Component/popup_menu.dart';
 import 'package:thriftflow/Component/tooltip.dart';
 import 'package:thriftflow/Controller/Individual/MyWallet/my_wallet_controller.dart';
 import 'package:thriftflow/Global/app_color.dart';
@@ -226,10 +227,144 @@ class MyWallet extends StatelessWidget {
                 ),
               ],
             ),
-            const Icon(
-              Icons.more_vert,
-              size: 25,
-              color: AppColor.grey,
+            MyPopupMenu(
+              itemMenu: [
+                PopupMenuItem(
+                  value: 1,
+                  child: Row(
+                    children: [
+                      SvgPicture.asset(
+                        "assets/icons/my_wallet-iconsmajor.svg",
+                        width: 25,
+                        height: 25,
+                        fit: BoxFit.scaleDown,
+                        colorFilter: const ColorFilter.mode(
+                          AppColor.text1,
+                          BlendMode.srcIn,
+                        ),
+                      ),
+                      const SizedBox(width: 10),
+                      Text(
+                        "Tạo icon trên màn hình",
+                        style: TextStyle(
+                          fontSize: DeviceHelper.getFontSize(14),
+                          color: AppColor.text1,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                PopupMenuItem(
+                  value: 1,
+                  child: Row(
+                    children: [
+                      SvgPicture.asset(
+                        "assets/icons/my_wallet-transaction.svg",
+                        width: 25,
+                        height: 25,
+                        fit: BoxFit.scaleDown,
+                        colorFilter: const ColorFilter.mode(
+                          AppColor.text1,
+                          BlendMode.srcIn,
+                        ),
+                      ),
+                      const SizedBox(width: 10),
+                      Text(
+                        "Chuyển tiền đến ví khác",
+                        style: TextStyle(
+                          fontSize: DeviceHelper.getFontSize(14),
+                          color: AppColor.text1,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                PopupMenuItem(
+                  value: 1,
+                  child: Row(
+                    children: [
+                      SvgPicture.asset(
+                        "assets/icons/my_wallet-edit.svg",
+                        width: 25,
+                        height: 25,
+                        fit: BoxFit.scaleDown,
+                        colorFilter: const ColorFilter.mode(
+                          AppColor.text1,
+                          BlendMode.srcIn,
+                        ),
+                      ),
+                      const SizedBox(width: 10),
+                      Text(
+                        "Sửa",
+                        style: TextStyle(
+                          fontSize: DeviceHelper.getFontSize(14),
+                          color: AppColor.text1,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                PopupMenuItem(
+                  value: 1,
+                  child: Row(
+                    children: [
+                      SvgPicture.asset(
+                        "assets/icons/my_wallet-storage.svg",
+                        width: 25,
+                        height: 25,
+                        fit: BoxFit.scaleDown,
+                        colorFilter: const ColorFilter.mode(
+                          AppColor.text1,
+                          BlendMode.srcIn,
+                        ),
+                      ),
+                      const SizedBox(width: 10),
+                      Text(
+                        "Lưu trữ",
+                        style: TextStyle(
+                          fontSize: DeviceHelper.getFontSize(14),
+                          color: AppColor.text1,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                PopupMenuItem(
+                  value: 1,
+                  child: Row(
+                    children: [
+                      SvgPicture.asset(
+                        "assets/icons/my_wallet-recycle-bin.svg",
+                        width: 25,
+                        height: 25,
+                        fit: BoxFit.scaleDown,
+                        colorFilter: const ColorFilter.mode(
+                          AppColor.text1,
+                          BlendMode.srcIn,
+                        ),
+                      ),
+                      const SizedBox(width: 10),
+                      Text(
+                        "Xóa",
+                        style: TextStyle(
+                          fontSize: DeviceHelper.getFontSize(14),
+                          color: AppColor.text1,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+              child: const Icon(
+                Icons.more_vert,
+                size: 25,
+                color: AppColor.grey,
+              ),
             ),
           ],
         ),
