@@ -140,6 +140,7 @@ class TransactionBook extends StatelessWidget {
                             MyPopupMenu(
                               itemMenu: [
                                 PopupMenuItem(
+                                  onTap: () => _showDialog(context),
                                   child: Text(
                                     "Khoảng thời gian",
                                     style: TextStyle(
@@ -329,6 +330,81 @@ class TransactionBook extends StatelessWidget {
                 ),
               ),
       ),
+    );
+  }
+
+  _showDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          backgroundColor: AppColor.main,
+          contentPadding: const EdgeInsets.all(20),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              _itemTimeFillter(
+                type: 'day',
+                title: 'Ngày',
+              ),
+              _itemTimeFillter(
+                type: 'month',
+                title: 'Tháng',
+              ),
+              _itemTimeFillter(
+                type: 'year',
+                title: 'Năm',
+              ),
+              _itemTimeFillter(
+                type: 'all',
+                title: 'Tất cả',
+              ),
+              _itemTimeFillter(
+                type: 'custom',
+                title: 'Tùy chỉnh',
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  GestureDetector _itemTimeFillter(
+      {required String type, required String title}) {
+    return GestureDetector(
+      onTap: () {
+        Get.back();
+        controller.typeTime.value = type;
+      },
+      child: Row(
+        children: [
+          controller.typeTime.value == type
+              ? Icon(
+                  Icons.check,
+                  color: AppColor.fourthMain,
+                  size: 25,
+                )
+              : const SizedBox(
+                  width: 25,
+                  height: 25,
+                ),
+          const SizedBox(width: 20),
+          Expanded(
+            child: Text(
+              title,
+              style: TextStyle(
+                fontSize: DeviceHelper.getFontSize(14),
+                color: AppColor.text1,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ),
+        ],
+      ).paddingSymmetric(vertical: 8),
     );
   }
 }
